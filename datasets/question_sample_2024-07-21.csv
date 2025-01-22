@@ -1,0 +1,501 @@
+source,id,question,resolution_date,resolved_to
+yfinance,VICI,"Will VICI's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/VICI for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+yfinance,CPRT,"Will CPRT's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CPRT for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+yfinance,KMB,"Will KMB's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/KMB for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+infer,1342,"Will the Houthi movement and Yemen reach a ceasefire that is in effect on 31 December 2024 and lasts at least six months?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://www.infer-pub.com/questions/1342.",2024-08-20,0.0
+yfinance,DECK,"Will DECK's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/DECK for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+fred,IC4WSA,"Will the 4-week moving average of initial unemployment claims have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/IC4WSA once the data is published.",2024-10-19,1.0
+fred,BAMLC0A4CBBBEY,"Will the effective yield of securities with an investment grade rating of BBB in the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A4CBBBEY once the data is published.",2024-10-19,0.0
+yfinance,TSCO,"Will TSCO's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/TSCO for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+wikipedia,8c7985d78360e28f5bb4bc303f157919422a4963fd9ab6d37515f6c5581cbe06,"According to Wikipedia, will a vaccine have been developed for Hookworm infection by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+yfinance,CLX,"Will CLX's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CLX for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,1.0
+yfinance,LH,"Will LH's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/LH for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+wikipedia,82f7697e98ceedd1ed4ff23bb768ab79f85b3624a9b3580a136b42fbeed81beb,"According to Wikipedia, will a vaccine have been developed for Progressive multifocal leukoencephalopathy by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+wikipedia,9fa89a7d296950fe794a71be32c65e5d50930a8dbe0f9a8c780f27eec1529e60,"According to Wikipedia, will a vaccine have been developed for Cellulitis by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07280.D,"What is the probability that the daily average temperature at the French weather station at Dijon-Bourgogne Airport will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07280.D once the data is published.",2024-08-20,0.0
+acled,97e9467176cf6658b3bd9c9ebf89d8510df5e3aabff8c3d14cdcb5d9dfa596c5,"Will there be more than ten times as many 'Protests' in Honduras for the 30 days before 2025-01-17 compared to one plus the 30-day average of 'Protests' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Protests'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+fred,BAMLH0A1HYBB,"Will the option-adjusted spread of securities with an investment grade rating of BB in the ICE BofA US High Yield Master II Index, which tracks the performance of corporate debt below investment grade in the US domestic market, have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLH0A1HYBB once the data is published.",2024-10-19,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07190.D,"What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2024-10-19 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07190.D once the data is published.",2024-10-19,0.0
+acled,1c9c9d7b576258a7dcb4ae71399ffb2f0bf91c8c7bc9740ca081022a6ceb7ed3,"Will there be more than ten times as many 'Battles' in Slovenia for the 30 days before 2024-08-20 compared to one plus the 30-day average of 'Battles' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Battles'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Battles' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Battles' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+wikipedia,7bd4c6721da823b89d18611bc24498d2566aab30014f3c221d507a700da4af2a,"According to Wikipedia, will Levon Aronian have a FIDE ranking on 2024-10-19 as high or higher than their ranking on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-10-19,1.0
+yfinance,CDNS,"Will CDNS's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CDNS for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,0.0
+acled,d2f53c35645247d8ff5bdd09147c7409afb6752ace3d5863ea759e821c619b07,"Will there be more 'Battles' in Israel for the 30 days before 2024-08-20 compared to the 30-day average of 'Battles' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Battles'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Battles' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Battles' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07190.D,"What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-01-17 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07190.D once the data is published.",2025-01-17,0.0
+fred,OBMMIJUMBO30YF,"Will the 30-year fixed rate jumbo mortgage index have increased by 2025-01-17 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/OBMMIJUMBO30YF once the data is published.",2025-01-17,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07005.D,"What is the probability that the daily average temperature at the French weather station at Abbeville will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07005.D once the data is published.",2024-08-20,0.0
+acled,39f1ff2b98ec6f5f85699fde53f5fb2f6746325a4e0320027bf618e7e40f9c7c,"Will there be more 'Riots' in Haiti for the 30 days before 2025-01-17 compared to the 30-day average of 'Riots' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Riots'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Riots' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Riots' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+fred,CASACBW027SBOG,"Will the cash assets of all commercial US banks have increased by 2024-08-20 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/CASACBW027SBOG once the data is published.",2024-08-20,0.0
+acled,4aa59262070b24c69f8ad98ddedd5eba84a94a7fd8737e4728c54d6182e5c4db,"Will there be more 'Violence against civilians' in New Zealand for the 30 days before 2025-01-17 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Violence against civilians'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+fred,BAMLC0A3CA,"Will the option-adjusted spread of securities with an investment grade rating of A in the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-08-20 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A3CA once the data is published.",2024-08-20,1.0
+wikipedia,f085362f8814ffa84888e2c01d4588fd1da934aaa8a0008cef17e62f2c118b2d,"According to Wikipedia, will a vaccine have been developed for AIDS (acquired immunodeficiency syndrome) by 2025-01-17?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2025-01-17,0.0
+yfinance,SNA,"Will SNA's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/SNA for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,1.0
+acled,d9c14625f757e5fb87a7bdfe5154170e6fd569a1bb4b215cf1fb50e704bdc739,"Will there be more 'Violence against civilians' in Guadeloupe for the 30 days before 2025-01-17 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Violence against civilians'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+yfinance,RVTY,"Will RVTY's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/RVTY for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,1.0
+wikipedia,4f174f02cc1dc51a814862c775553c464dc71518ef09d1f97731cd70b2e8444f,"According to Wikipedia, will a vaccine have been developed for (New) Variant Creutzfeldt–Jakob disease (vCJD, nvCJD) by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+yfinance,DVA,"Will DVA's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/DVA for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+acled,8d5c97e6c9d26429339b3bf1ca0bfc816f9927f2bb0214ca584d483f306bed01,"Will there be more 'Violence against civilians' in Zimbabwe for the 30 days before 2024-08-20 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Violence against civilians'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07181.D,"What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2024-10-19 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07181.D once the data is published.",2024-10-19,0.0
+wikipedia,1b12215032357c20078f36029eca8e2c67788d7834cba572d712b7d769a288ee,"According to Wikipedia, will Koneru Humpy have an Elo rating on 2024-08-20 that's at least 1% higher than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-08-20,0.0
+yfinance,PHM,"Will PHM's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/PHM for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,0.0
+fred,RRPONTTLD,"Will the aggregated daily value of securities sold by the Federal Reserve in temporary open market operations have increased by 2025-01-17 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/RRPONTTLD once the data is published.",2025-01-17,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07299.D,"What is the probability that the daily average temperature at the French weather station at EuroAirport Basel Mulhouse Freiburg will be higher on 2024-10-19 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07299.D once the data is published.",2024-10-19,0.0
+yfinance,CCL,"Will CCL's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CCL for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07627.D,"What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07627.D once the data is published.",2024-08-20,1.0
+acled,6eee18f909f384a15b0d936d3d07b7151a285118f994cc75e04fcf9e709812cb,"Will there be more than ten times as many fatalities in Kosovo for the 30 days before 2024-08-20 compared to one plus the 30-day average of fatalities over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,fatalities
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of fatalities over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more fatalities would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+wikipedia,274e2a09f7060b8ea234c1d6a91ec3e43b523a2911042a8696ac2b42fc531ca8,"According to Wikipedia, will Aleksandra Goryachkina have a FIDE ranking on 2024-10-19 as high or higher than their ranking on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-10-19,1.0
+yfinance,KHC,"Will KHC's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/KHC for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,0.0
+wikipedia,c8cc0816ce50a7fc018eccb7e6ed19628dc1f56e1cda26aca4b8f09c4edc7beb,"According to Wikipedia, will Leinier Dominguez have a FIDE ranking on 2024-08-20 as high or higher than their ranking on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-08-20,0.0
+wikipedia,2f9337f5d2cc530629386a651bc047c7b76cb3d2fa3222a2fca72a8a7a20e7b2,"According to Wikipedia, will a vaccine have been developed for Toxic shock syndrome (TSS) by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+fred,IHLIDXUS,"Will the number of US job postings on Indeed have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/IHLIDXUS once the data is published.",2024-10-19,0.0
+yfinance,CPRT,"Will CPRT's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CPRT for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,1.0
+wikipedia,27b3562010fedb45de26cc72b0f1dfcd422aaa195c5c1acdd369833f55a2ac51,"According to Wikipedia, will a vaccine have been developed for Ehrlichiosis by 2025-01-17?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2025-01-17,0.0
+acled,e53dabd31f71786f3b044bd12e498deee5a732a43de2d9be7468ebaced466977,"Will there be more 'Strategic developments' in Angola for the 30 days before 2025-01-17 compared to the 30-day average of 'Strategic developments' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Strategic developments'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+acled,615aeb10db32869c4bc5e40fa4abcf1cc40b7eb5a52865a6061167c5e59079b9,"Will there be more than ten times as many 'Riots' in Bhutan for the 30 days before 2024-10-19 compared to one plus the 30-day average of 'Riots' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Riots'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Riots' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Riots' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-10-19,0.0
+fred,CCSA,"Will the number of insured unemployment claims have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/CCSA once the data is published.",2024-10-19,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07591.D,"What is the probability that the daily average temperature at the French weather station at Embrun will be higher on 2025-01-17 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07591.D once the data is published.",2025-01-17,0.0
+wikipedia,03288caeb42fec07ed971589de97f4a580c64bc1b75a916af289fdb34a04da42,"According to Wikipedia, will Jan-Krzysztof Duda have a FIDE ranking on 2024-08-20 as high or higher than their ranking on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07481.D,"What is the probability that the daily average temperature at the French weather station at Lyon–Saint Exupéry Airport will be higher on 2025-01-17 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07481.D once the data is published.",2025-01-17,0.0
+yfinance,HUM,"Will HUM's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/HUM for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,0.0
+yfinance,CDNS,"Will CDNS's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CDNS for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,1.0
+acled,4d0226bb7d28b3509344cecbac6e7003dbb7cb5ac9ffc68518218fb163925931,"Will there be more than ten times as many 'Violence against civilians' in Afghanistan for the 30 days before 2024-08-20 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Violence against civilians'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07222.D,"What is the probability that the daily average temperature at the French weather station at Nantes Atlantique Airport will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07222.D once the data is published.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07299.D,"What is the probability that the daily average temperature at the French weather station at EuroAirport Basel Mulhouse Freiburg will be higher on 2025-01-17 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07299.D once the data is published.",2025-01-17,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07190.D,"What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07190.D once the data is published.",2024-08-20,0.0
+acled,679aca5c46d7e9a3966503abc06f64d74369b3c5ea29ffbc5607c7497927975c,"Will there be more 'Strategic developments' in Laos for the 30 days before 2024-08-20 compared to the 30-day average of 'Strategic developments' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Strategic developments'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+wikipedia,2f9337f5d2cc530629386a651bc047c7b76cb3d2fa3222a2fca72a8a7a20e7b2,"According to Wikipedia, will a vaccine have been developed for Toxic shock syndrome (TSS) by 2024-10-19?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-10-19,0.0
+yfinance,INTU,"Will INTU's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/INTU for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,1.0
+fred,NASDAQ100,"Will the NASDAQ 100 Index, which represents the daily index value at market close, have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/NASDAQ100 once the data is published.",2024-10-19,1.0
+acled,26abb72d282439d6aaf2133336ed1a475a7c647c30a6739d0654c04406a4b74b,"Will there be more than ten times as many 'Explosions/Remote violence' in Portugal for the 30 days before 2024-10-19 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Explosions/Remote violence'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-10-19,0.0
+wikipedia,5f484517610914d8596bbc5302f164a81bb62bab27d481137fe178bc7a038ed8,"According to Wikipedia, will a vaccine have been developed for Chancroid by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+wikipedia,c8cc0816ce50a7fc018eccb7e6ed19628dc1f56e1cda26aca4b8f09c4edc7beb,"According to Wikipedia, will Leinier Dominguez have a FIDE ranking on 2024-08-20 as high or higher than their ranking on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-08-20,0.0
+acled,9043472375a02690dfb338bd3d11605105562e5cae9672a989961b0c5bef9b51,"Will there be more than ten times as many 'Protests' in Bahrain for the 30 days before 2024-10-19 compared to one plus the 30-day average of 'Protests' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Protests'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-10-19,0.0
+yfinance,PNC,"Will PNC's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/PNC for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+yfinance,BWA,"Will BWA's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/BWA for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+wikipedia,eda8e5b43e0db651905667586e1e72a7d5679cbb5b3ef4dd6faa6444759e2dee,"According to Wikipedia, will a vaccine have been developed for Legionellosis (Legionnaires' disease) by 2024-08-20?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-08-20,0.0
+fred,DAAA,"Will Moody's Seasoned Aaa Corporate Bond Yield have increased by 2024-08-20 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DAAA once the data is published.",2024-08-20,0.0
+yfinance,GWW,"Will GWW's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/GWW for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,1.0
+acled,f4c38ca3c45ac8dea0e76cc1fbe7e0a89b58f854a04174b0078a5ee5aefc66d8,"Will there be more than ten times as many 'Explosions/Remote violence' in Luxembourg for the 30 days before 2025-01-17 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Explosions/Remote violence'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07037.D,"What is the probability that the daily average temperature at the French weather station at Rouen Airport will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07037.D once the data is published.",2024-08-20,0.0
+wikipedia,451aa86022cadf5f8c08fc46fecf8c86d46b17ed4f97a03c14380c9c75837f23,"According to Wikipedia, will a vaccine have been developed for Middle East respiratory syndrome (MERS) by 2025-01-17?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2025-01-17,0.0
+yfinance,CDNS,"Will CDNS's market close price on 2024-10-19 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CDNS for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-10-19,0.0
+fred,SOFRINDEX,"Will the Federal Reserve's SOFR (Secured Overnight Financing Rate) Index have increased by 2024-08-20 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/SOFRINDEX once the data is published.",2024-08-20,1.0
+fred,DGS3MO,"Will the market yield on US treasury securities at 3-month constant maturity, quoted on an investment basis, have increased by 2024-08-20 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DGS3MO once the data is published.",2024-08-20,0.0
+yfinance,LULU,"Will LULU's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/LULU for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,0.0
+yfinance,CHRW,"Will CHRW's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CHRW for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,1.0
+wikipedia,2f9337f5d2cc530629386a651bc047c7b76cb3d2fa3222a2fca72a8a7a20e7b2,"According to Wikipedia, will a vaccine have been developed for Toxic shock syndrome (TSS) by 2024-10-19?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-10-19,0.0
+acled,9338de937aee2ca6a5a892e879683a60310ddb3a4f16c3b352056b450abce9e4,"Will there be more 'Strategic developments' in Anguilla for the 30 days before 2025-01-17 compared to the 30-day average of 'Strategic developments' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Strategic developments'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+fred,WLCFLPCL,"Will the weekly dollar amount of loans made under the primary credit lending program by the Federal Reserve have increased by 2024-10-19 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/WLCFLPCL once the data is published.",2024-10-19,0.0
+wikipedia,f085362f8814ffa84888e2c01d4588fd1da934aaa8a0008cef17e62f2c118b2d,"According to Wikipedia, will a vaccine have been developed for AIDS (acquired immunodeficiency syndrome) by 2024-10-19?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-10-19,0.0
+yfinance,SOLV,"Will SOLV's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/SOLV for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,1.0
+fred,NFCILEVERAGE,"Will the Chicago Fed's National Financial Conditions Leverage Subindex have increased by 2025-01-17 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/NFCILEVERAGE once the data is published.",2025-01-17,0.0
+yfinance,CCL,"Will CCL's market close price on 2024-08-20 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CCL for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-08-20,0.0
+yfinance,CLX,"Will CLX's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CLX for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,1.0
+acled,3d8c7edc8a70211d39a3e4827f448e5908cd5e98dbbb1e3d7501c7761a877788,"Will there be more 'Riots' in Oman for the 30 days before 2025-01-17 compared to the 30-day average of 'Riots' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Riots'
+2023-11-11,1
+2023-10-10,2
+to calculate the 30-day average of 'Riots' over the preceding 360 days, we’d have: (1+2)/12=0.25.
+
+In this example, for the question to resolve positively, 1 or more 'Riots' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2025-01-17,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07299.D,"What is the probability that the daily average temperature at the French weather station at EuroAirport Basel Mulhouse Freiburg will be higher on 2024-08-20 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07299.D once the data is published.",2024-08-20,0.0
+acled,1c9c9d7b576258a7dcb4ae71399ffb2f0bf91c8c7bc9740ca081022a6ceb7ed3,"Will there be more than ten times as many 'Battles' in Slovenia for the 30 days before 2024-08-20 compared to one plus the 30-day average of 'Battles' over the 360 days preceding 2024-07-21?
+
+e.g. If the forecast due date is 2024-01-01 and we have the following data:
+Date,'Battles'
+2023-11-11,1
+2023-10-10,2
+to calculate one plus the 30-day average of 'Battles' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.
+
+In this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Battles' would need to occur in the 30 days leading up to the resolution.
+
+Resolution Criteria: Resolves to the value calculated from the ACLED dataset once the data is published.",2024-08-20,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07130.D,"What is the probability that the daily average temperature at the French weather station at Rennes–Saint-Jacques Airport will be higher on 2024-10-19 than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07130.D once the data is published.",2024-10-19,0.0
+wikipedia,6b5ae258d99205be0f8e1e4396d34caa191b640b860ce569345d93f7f4634adc,"According to Wikipedia, will a vaccine have been developed for Mycoplasma pneumonia by 2024-10-19?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-10-19,0.0
+yfinance,CSGP,"Will CSGP's market close price on 2025-01-17 be higher than its market close price on 2024-07-21?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CSGP for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2025-01-17,0.0
+polymarket,0xfe495172d67c0bd95c8c62b9a9f9815b6e35d9653e5a1f4f8c1abb051e4f3638,"Will a candidate from another party win Massachusetts Presidential Election?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://polymarket.com/market/will-a-candidate-from-another-party-win-massachusetts-presidential-election.",2025-01-17,0.0
+fred,EXPINF2YR,"Will the Federal Reserve Bank of Cleveland's 2-year expected inflation rate have increased by 2024-08-20 as compared to its value on 2024-07-21?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/EXPINF2YR once the data is published.",2024-08-20,0.0
+wikipedia,cfecaf75abdfe4be7627c5e61a5d7c88541a74fbf3f030dd0b3b81e3f456e655,"According to Wikipedia, will Sarasadat Khademalsharieh have an Elo rating on 2025-01-17 that's at least 1% higher than on 2024-07-21?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2025-01-17,0.0

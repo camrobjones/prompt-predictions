@@ -1,0 +1,349 @@
+source,id,question,resolution_date,resolved_to
+dbnomics,meteofrance_TEMPERATURE_celsius.07280.D,"What is the probability that the daily average temperature at the French weather station at Dijon-Bourgogne Airport will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07280.D once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07650.D,"What is the probability that the daily average temperature at the French weather station at Marignane will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07650.D once the data is published.",2024-12-15,0.0
+fred,TMBACBW027SBOG,"Will the total dollar amount of mortgage-backed securities held by all US commercial banks have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/TMBACBW027SBOG once the data is published.",2024-12-15,1.0
+yfinance,ETSY,"Will ETSY's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/ETSY for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,1.0
+fred,NFCICREDIT,"Will the Chicago Fed's National Financial Conditions Credit Subindex have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/NFCICREDIT once the data is published.",2024-12-15,1.0
+yfinance,MS,"Will MS's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/MS for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+polymarket,0x0ebf9290c87facccf4b0d646b175e66cdeddd3d6fc887aee32b88a04e34ce939,"Tether Insolvent in 2024?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://polymarket.com/market/tether-insolvent-in-2024.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07020.D,"What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07020.D once the data is published.",2024-12-15,1.0
+wikipedia,c907f6c2f20d03900179318b2eb8027873677867b8b7f9d2d5766809237502d5,"According to Wikipedia, will Magnus Carlsen have a FIDE ranking on 2024-12-15 as high or higher than their ranking on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,1.0
+wikipedia,f2cfd4cd4dd2dcf1a05ea950e3ae4b2ed9146c64b51dc5c56315875cc43e0e0e,"According to Wikipedia, will Zhu Jiner have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.61997.D,"What is the probability that the daily average temperature at the French weather station at Île de la Possession will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.61997.D once the data is published.",2024-12-15,1.0
+wikipedia,dd47480f263c9c3b464c70be23fb2e4f08e3f223e44884d74a8dc654be0d2fbf,"According to Wikipedia, will Magnus Carlsen have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+yfinance,DTE,"Will DTE's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/DTE for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.61980.D,"What is the probability that the daily average temperature at the French weather station at Roland Garros Airport will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.61980.D once the data is published.",2024-12-15,1.0
+wikipedia,831a289e8d494cce6ac96eb97eadd8a2d80ec3d7e406ae440bad864583a12adb,"According to Wikipedia, will Kaylee McKeown still hold the world record for 50m backstroke in long course (50 metres) swimming pools on 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_world_records_in_swimming on the resolution date.",2024-12-15,1.0
+wikipedia,7d768dfd9c45e0a386a542f0f8e71760ccb8540803419a4eb15824a2a99c30cc,"According to Wikipedia, will a vaccine have been developed for Pelvic inflammatory disease (PID) by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+yfinance,LULU,"Will LULU's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/LULU for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+wikipedia,c8cc0816ce50a7fc018eccb7e6ed19628dc1f56e1cda26aca4b8f09c4edc7beb,"According to Wikipedia, will Leinier Dominguez have a FIDE ranking on 2024-12-15 as high or higher than their ranking on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,1.0
+fred,BAMLEMHBHYCRPIOAS,"Will the option-adjusted spread for the ICE BofA High Yield Emerging Markets Corporate Plus Index, which tracks the performance of emerging markets securities rated BB1 or lower within major domestic and Eurobond markets, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLEMHBHYCRPIOAS once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.61976.D,"What is the probability that the daily average temperature at the French weather station at Tromelin Island will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.61976.D once the data is published.",2024-12-15,1.0
+yfinance,PPG,"Will PPG's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/PPG for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07510.D,"What is the probability that the daily average temperature at the French weather station at Bordeaux–Mérignac Airport will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07510.D once the data is published.",2024-12-15,0.0
+fred,BAMLHE00EHYIOAS,"Will the option-adjusted spread of the ICE BofA Euro High Yield Index, which tracks the performance of below investment grade corporate debt issued in the euro domestic or eurobond markets, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLHE00EHYIOAS once the data is published.",2024-12-15,0.0
+yfinance,PEG,"Will PEG's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/PEG for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+wikipedia,04229451304ccf067edaa5d30d22531f0a157af547d6725e50fd28f74dfb15e5,"According to Wikipedia, will Sergey Karjakin have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+manifold,5PBiCM7mofSHR55eoXkP,"Will there be a ceasefire in Gaza by Eoy 2024?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://manifold.markets/grofigaszadosijv/will-there-be-a-ceasefire-in-gaza-b.",2024-12-15,0.0
+yfinance,NEM,"Will NEM's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/NEM for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+manifold,JxcpJTGSurSdSMlFxYhL,"Will Threads have more daily active users than Twitter by the end of 2024?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://manifold.markets/Alice/will-threads-have-more-daily-active.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07139.D,"What is the probability that the daily average temperature at the French weather station at Alençon will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07139.D once the data is published.",2024-12-15,0.0
+fred,BAMLHE00EHYIOAS,"Will the option-adjusted spread of the ICE BofA Euro High Yield Index, which tracks the performance of below investment grade corporate debt issued in the euro domestic or eurobond markets, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLHE00EHYIOAS once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07020.D,"What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07020.D once the data is published.",2024-12-15,1.0
+yfinance,AES,"Will AES's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/AES for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,1.0
+fred,SOFR30DAYAVG,"Will the 30-day average of the Federal Reserve's Secured Overnight Financing Rate have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/SOFR30DAYAVG once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.61970.D,"What is the probability that the daily average temperature at the French weather station at Juan de Nova Island will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.61970.D once the data is published.",2024-12-15,0.0
+fred,BAMLC0A4CBBB,"Will the option-adjusted spread of securities with an investment grade rating of BBB in the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A4CBBB once the data is published.",2024-12-15,0.0
+yfinance,BIO,"Will BIO's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/BIO for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,1.0
+fred,WRMFNS,"Will Retail Money Market Funds, a component of M2, a measure of USD money supply, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/WRMFNS once the data is published.",2024-12-15,0.0
+fred,DGS20,"Will the market yield on US treasury securities at 20-year constant maturity, quoted on an investment basis, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DGS20 once the data is published.",2024-12-15,1.0
+fred,WLCFLL,"Will the weekly dollar amount of loans made by the Federal Reserve under its liquidity and credit facilities have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/WLCFLL once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07117.D,"What is the probability that the daily average temperature at the French weather station at Ploumanac'h will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07117.D once the data is published.",2024-12-15,1.0
+polymarket,0x0e85e94301db0e38e25f0650ab649c3a4485b5fc9734a8b6abf3d0da0ee6dd55,"Will Joe pardon Hunter Biden?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://polymarket.com/market/will-joe-pardon-hunter-biden.",2024-12-15,1.0
+wikipedia,beccd776bdc07315be25d08c346969bdd986c7dae80302f14d3b1892fa674ecc,"According to Wikipedia, will Fabiano Caruana have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+fred,GASREGW,"Will the average price of regular gas in the US have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/GASREGW once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07621.D,"What is the probability that the daily average temperature at the French weather station at Tarbes–Lourdes–Pyrénées Airport will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07621.D once the data is published.",2024-12-15,1.0
+fred,DTB1YR,"Will the Federal Reserve's 1-year secondary market treasury bill rate have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DTB1YR once the data is published.",2024-12-15,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07761.D,"What is the probability that the daily average temperature at the French weather station at Ajaccio will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07761.D once the data is published.",2024-12-15,1.0
+yfinance,TJX,"Will TJX's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/TJX for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+wikipedia,25e629b0a54ee795ccbb7c44968f319952cae286525fa43501a290151a3f1d6c,"According to Wikipedia, will Aleksandra Goryachkina have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+fred,BAMLEMHBHYCRPIOAS,"Will the option-adjusted spread for the ICE BofA High Yield Emerging Markets Corporate Plus Index, which tracks the performance of emerging markets securities rated BB1 or lower within major domestic and Eurobond markets, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLEMHBHYCRPIOAS once the data is published.",2024-12-15,0.0
+yfinance,TTWO,"Will TTWO's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/TTWO for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+yfinance,TSLA,"Will TSLA's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/TSLA for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,1.0
+wikipedia,c90a910e5ea0ef3bdaedf23ce591e20a8da2df5b88c5b04e6264761959ddfcc0,"According to Wikipedia, will Andriy Govorov still hold the world record for 50m butterfly in long course (50 metres) swimming pools on 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_world_records_in_swimming on the resolution date.",2024-12-15,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07650.D,"What is the probability that the daily average temperature at the French weather station at Marignane will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07650.D once the data is published.",2024-12-15,0.0
+fred,BAMLC0A0CMEY,"Will the effective yield of the ICE BofA Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A0CMEY once the data is published.",2024-12-15,1.0
+wikipedia,7d0174469fd625915a26e4fb0dfa92578865bc3c97fdd31ba6a21a0df24c8797,"According to Wikipedia, will a vaccine have been developed for Anaplasmosis by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+wikipedia,d4fd9e41e71c3e5a2992b9c8b36ff655eb7265b7a46a434484f1267eabd59b92,"According to Wikipedia, will Gukesh D have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+polymarket,0x9c66114d2dfe2139325cc7a408a5cd5d2e73b55d919e2141b3a0ed83fc15895d,"Will Bitcoin hit $100k in 2024?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://polymarket.com/market/will-bitcoin-hit-100k-in-2024.",2024-12-15,1.0
+fred,GASREGW,"Will the average price of regular gas in the US have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/GASREGW once the data is published.",2024-12-15,0.0
+wikipedia,7c17d34e37d8cea481d3933f4e1c2c091bd523c3980043e539cde90fbc08f29a,"According to Wikipedia, will César Cielo still hold the world record for 50m freestyle in long course (50 metres) swimming pools on 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_world_records_in_swimming on the resolution date.",2024-12-15,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07005.D,"What is the probability that the daily average temperature at the French weather station at Abbeville will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07005.D once the data is published.",2024-12-15,1.0
+yfinance,NOW,"Will NOW's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/NOW for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+yfinance,HPQ,"Will HPQ's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/HPQ for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+fred,WRMFNS,"Will Retail Money Market Funds, a component of M2, a measure of USD money supply, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/WRMFNS once the data is published.",2024-12-15,0.0
+fred,DEXUSEU,"Will the spot exchange rate of US dollars to euros have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DEXUSEU once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07020.D,"What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07020.D once the data is published.",2024-12-15,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.61997.D,"What is the probability that the daily average temperature at the French weather station at Île de la Possession will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.61997.D once the data is published.",2024-12-15,1.0
+wikipedia,72a33a32e409997da4782833a3893e503ff84ad71005d422f9c2e00dd193350a,"According to Wikipedia, will Thomas Ceccon still hold the world record for 100m backstroke in long course (50 metres) swimming pools on 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_world_records_in_swimming on the resolution date.",2024-12-15,1.0
+yfinance,NCLH,"Will NCLH's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/NCLH for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+wikipedia,5b84647ac79598cc907b31cf1a0eb5aa9b35ae2365e8fcd340f335dc7d4f564a,"According to Wikipedia, will a vaccine have been developed for Tinea manum (ringworm of the hand) by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+fred,BAMLH0A3HYCEY,"Will the effective yield of securities with an investment grade rating of CCC or below in the ICE BofA US High Yield Master II Index, which tracks the performance of corporate debt below investment grade in the US domestic market, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLH0A3HYCEY once the data is published.",2024-12-15,1.0
+fred,BAMLC0A2CAAEY,"Will the effective yield of securities with an investment grade rating of AA in the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A2CAAEY once the data is published.",2024-12-15,1.0
+fred,ICSA,"Will the weekly number of initial unemployment claims have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/ICSA once the data is published.",2024-12-15,0.0
+fred,BAMLC0A2CAAEY,"Will the effective yield of securities with an investment grade rating of AA in the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A2CAAEY once the data is published.",2024-12-15,1.0
+fred,AMERIBOR,"Will AMERIBOR, an interest rate based on overnight loans made between banks on the American Financial Exchange, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/AMERIBOR once the data is published.",2024-12-15,1.0
+yfinance,CTLT,"Will CTLT's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CTLT for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,1.0
+fred,BAMLC0A2CAAEY,"Will the effective yield of securities with an investment grade rating of AA in the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/BAMLC0A2CAAEY once the data is published.",2024-12-15,1.0
+fred,DCOILBRENTEU,"Will the price of Brent crude oil have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DCOILBRENTEU once the data is published.",2024-12-15,1.0
+wikipedia,7b7a730c70c28c718432769ece59b4227d805ae20a4e4ee71ec62c8ef3915ead,"According to Wikipedia, will a vaccine have been developed for Trichinosis by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07240.D,"What is the probability that the daily average temperature at the French weather station at Tours will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07240.D once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07020.D,"What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07020.D once the data is published.",2024-12-15,1.0
+wikipedia,1d9b2c247a0f16b0531b5fc49bfed62658a4e7c10dc8bd6fee98fb5ff57cf8c0,"According to Wikipedia, will a vaccine have been developed for Herpes simplex by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+yfinance,AVY,"Will AVY's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/AVY for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+fred,RRPONTSYAWARD,"Will the award rate of US Treasury securities sold by the Federal Reserve in overnight temporary open market operations have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/RRPONTSYAWARD once the data is published.",2024-12-15,0.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07650.D,"What is the probability that the daily average temperature at the French weather station at Marignane will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07650.D once the data is published.",2024-12-15,0.0
+wikipedia,c76424a0e0e742fb5e9691f25c2f48a070fa3b3e08aa9163b365a2eb48815acf,"According to Wikipedia, will Tan Zhongyi have an Elo rating on 2024-12-15 that's at least 1% higher than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,0.0
+wikipedia,25ae06cda2a115dcb46cbf0fc6bbe6975bfb3212b489e26634b6087d7163f0a5,"According to Wikipedia, will a vaccine have been developed for Tularemia by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+yfinance,HPQ,"Will HPQ's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/HPQ for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+wikipedia,ccb75c44436ebc9d35d79e03799e81be999dde80d339866b8ca81c3a125f41bb,"According to Wikipedia, will Wei Yi have a FIDE ranking on 2024-12-15 as high or higher than their ranking on 2024-12-08?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/FIDE_rankings on the resolution date.",2024-12-15,1.0
+fred,NASDAQCOM,"Will the NASDAQ Composite Index, which represents the daily index value at market close, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/NASDAQCOM once the data is published.",2024-12-15,1.0
+dbnomics,meteofrance_TEMPERATURE_celsius.07110.D,"What is the probability that the daily average temperature at the French weather station at Brest Bretagne Airport will be higher on 2024-12-15 than on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://db.nomics.world/meteofrance_TEMPERATURE_celsius.07110.D once the data is published.",2024-12-15,1.0
+yfinance,CMCSA,"Will CMCSA's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/CMCSA for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+yfinance,OMC,"Will OMC's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/OMC for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+yfinance,NWS,"Will NWS's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/NWS for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+yfinance,MO,"Will MO's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/MO for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
+fred,DGS5,"Will the market yield on US treasury securities at 5-year constant maturity, quoted on an investment basis, have increased by 2024-12-15 as compared to its value on 2024-12-08?
+
+Resolution Criteria: Resolves to the value found at https://fred.stlouisfed.org/series/DGS5 once the data is published.",2024-12-15,1.0
+wikipedia,400645f89b7f8e0ea2c080c5b3dfa0e304b97fe03c04ce97ec60e1e9903281d6,"According to Wikipedia, will a vaccine have been developed for Fusobacterium infection by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+manifold,7LxcLPJKi3jA86XghgQE,"Will Saudi Arabia and Israel establish diplomatic relations before 2025?
+
+Resolution Criteria: Resolves to the outcome of the question found at https://manifold.markets/JoshuaWilkes/will-saudi-arabia-and-israel-establ.",2024-12-15,0.0
+wikipedia,1136efa42c5d7f76d1d728374dcf42ff7bccec4a1ead6bfa8f6cd6847f483eb3,"According to Wikipedia, will a vaccine have been developed for Trichuriasis (whipworm infection) by 2024-12-15?
+
+Resolution Criteria: Resolves to the value calculated from https://en.wikipedia.org/wiki/List_of_infectious_diseases on the resolution date.",2024-12-15,0.0
+yfinance,BIO,"Will BIO's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/BIO for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,1.0
+yfinance,SNPS,"Will SNPS's market close price on 2024-12-15 be higher than its market close price on 2024-12-08?
+
+Stock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.
+
+Resolution Criteria: Resolves to the market close price at https://finance.yahoo.com/quote/SNPS for the resolution date. If the resolution date coincides with a day the market is closed (weekend, holiday, etc.) the previous market close price is used.",2024-12-15,0.0
