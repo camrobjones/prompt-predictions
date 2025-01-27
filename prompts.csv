@@ -1,0 +1,166 @@
+prompt_id,Prompt Name,Citation,Draft Prompt,Topic,Prompt Type,Cognitive Mode
+1,Control,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",Control,-,-
+2,Chain of Thought,"Wei, J., Wang, X., Schuurmans, D., Bosma, M., Xia, F., Chi, E., ... & Zhou, D. (2022). Chain-of-thought prompting elicits reasoning in large language models. Advances in neural information processing systems, 35, 24824-24837.","Approach this question step-by-step, explaining your reasoning at each stage. Then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
+
+{Question}",AI,Framework,Analytical
+3,Self-Consistency,"Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E., Narang, S., ... & Zhou, D. (2022). Self-consistency improves chain of thought reasoning in language models. arXiv preprint arXiv:2203.11171.","Generate three separate answers to the following question, each using a different reasoning path. Once you've generated these answers, determine the most consistent response based on all three. Then provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",AI,Framework,Dialectical
+4,Few-Shot,"Brown, T. B. (2020). Language models are few-shot learners. arXiv preprint arXiv:2005.14165.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Here are examples of forecasts for different questions to illustrate how to approach forecasting questions:
+
+Q1: Will India be the primary source of global GDP growth in 2026? A1: I'd give this a 65% chance. China's real estate sector problems will likely take years to unwind, while India's young workforce and growing middle class should maintain momentum. Major risks would be an oil price shock or political instability slowing reforms.
+
+Q2: Will lab-grown meat products be available in major US grocery chains by 2026? A2: I'm at 40% on this one. While the technology is progressing and costs are falling, regulatory approval and scaling up production will take longer than optimists expect. Plus consumer acceptance remains a huge hurdle that will take time to overcome.
+
+Q3: Will a non-English language TV show be the most watched streaming series globally in 2026? A3: I'd say 55%. The international streaming market is growing much faster than North America, and production quality from places like Korea and Spain keeps improving. Still, English-language content has built-in advantages in marketing and distribution that are hard to overcome.
+
+{Question}",AI,Information,Reference-Based
+5,Step-Back,"Zheng, H. S., Mishra, S., Chen, X., Cheng, H. T., Chi, E. H., Le, Q. V., & Zhou, D. (2023). Take a step back: Evoking reasoning via abstraction in large language models. arXiv preprint arXiv:2310.06117.","For the following question, identify the high-level principle or abstraction that could guide your reasoning. Clearly state this principle. Then provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",AI,Framework,Analytical
+6,High Personal Stakes,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Getting this forecast right is extremely important to me personally and professionally, please do not let me down on this! 
+
+{Question}",AI,Incentives,Intuitive
+7,Echo,"Mekala, R. R., Razeghi, Y., & Singh, S. (2023). EchoPrompt: Instructing the Model to Rephrase Queries for Improved In-context Learning. arXiv preprint arXiv:2309.10687.","Please answer the following question. First, let’s repeat the question, and then provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",AI,Unguided Reflection,Intuitive
+8,Structure,https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api,"### Prompt
+Answer the following question using a probabilistic estimate between 0% and 100%.
+
+### Response Formatting
+- **Output Structure**: Use the following format strictly: `Forecast: X%`
+ - Replace “X” with a single numeric value between 0 and 100.
+
+### Question
+{Question}",AI,Framework,Analytical
+9,Emotional Prompt,"Li, C., Wang, J., Zhang, Y., Zhu, K., Hou, W., Lian, J., ... & Xie, X. (2023). Large language models understand and can be enhanced by emotional stimuli. arXiv pre–print arXiv:2307.11760.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. This is very important to my career. 
+
+{Question}",AI,Incentives,Intuitive
+10,Re-Reading,"Xu, X., Tao, C., Shen, T., Xu, C., Xu, H., Long, G., ... & Ma, S. (2024, November). Re-Reading Improves Reasoning in Large Language Models. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (pp. 15549-15575).","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+
+{Question}
+
+Read the question again: {Question}",AI,Unguided Reflection,Intuitive
+11,Uncertainty Quantification,"Soll, J. B., & Klayman, J. (2004). ""Overconfidence in interval estimates."" Journal of Experimental Psychology: Learning, Memory, and Cognition, 30(2), 299-314.
+
+Lichtenstein, S., Fischhoff, B., & Phillips, L. D. (1982). ""Calibration of probabilities: The state of the art to 1980.""","Please answer the following question. Then, provide a prediction interval in which you quantify the uncertainty of your prediction. Then, from this arrive at a single probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",Forecasting,Framework,Analytical
+12,Superforecasting Persona (short),"Tetlock, P. E., & Gardner, D. (2016). Superforecasting: The art and science of prediction. Random House.
+
+
+Kong, A., Zhao, S., Chen, H., Li, Q., Qin, Y., Sun, R., ... & Dong, X. (2023). Better zero-shot reasoning with role-play prompting. arXiv preprint arXiv:2308.07702.","You are a highly accurate superforecaster, known for making well-calibrated predictions. Then provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",Forecasting,Framework,Reference-based
+13,Abstention,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. If you think you cannot forecast this question for any reason, respond instead with: 'Forecast: No forecast given'.
+
+{Question}",Forecasting,Unguided Reflection,Intuitive
+14,Counterfactual Reasoning,,"Please answer the following question. Consider what would happen if some outcome in the past had been different. How does this affect your prediction? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",Forecasting,Framework,Dialectical
+15,Analogical Reasoning,,"Please answer the following question. Consider how a similar past event unfolded. How might this analogy inform your prediction? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",Forecasting,Framework,Reference-based
+16,Hypothetical Scenario Analysis,,"Please answer the following question. Imagine different scenarios where the event does or does not occur. How do these affect your prediction? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",Forecasting,Framework,Dialectical
+17,Scoring Rule,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. To assess the accuracy of this forecast, a Brier score is computed, which is the mean squared difference between the forecast and the actual outcome. 
+
+{Question}",Forecasting,Information,Analytical
+18,Premortem,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+Imagine two scenarios and analyse how they unfolded:
+Success: It's one year from now and the outcome has definitely occurred. What chain of events and factors led to this outcome?
+Failure: It's one year from now and the question has definitely not occurred. What chain of events and factors prevented this outcome?
+After considering both scenarios carefully, provide your forecast.
+
+{Question}",Forecasting,Framework,Dialectical
+19,Base Rate First,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+Before considering the specific details of this question, what is the historical frequency of similar events? Using this base rate as your starting point, adjust your probability estimate based on the particular circumstances of this case.
+{Question}",Forecasting,Information,Reference-based
+20,Time Decomposition,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+Break down your forecast into relevant time periods leading up to the target date. Estimate the probability for each interval, then combine these into your final forecast, considering how probabilities compound over time.
+{Question}",Forecasting,Information,Analytical
+21,Metacognition,"Flavell, J. H. (1979). Metacognition and cognitive monitoring: A new area of cognitive–developmental inquiry. American psychologist, 34(10), 906-911.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%. Reflect on how you arrived at your prediction and consider if anything was overlooked. Format your response as: 'Forecast: X%'.
+
+{Question}",Behavioural Science,Unguided Reflection,Analytical
+22,Anti-Biasing (Anchoring),"Furnham, A., & Boo, H. C. (2011). A literature review of the anchoring effect. The journal of socio-economics, 40(1), 35-42.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Ensure that your prediction is not influenced by initial values or assumptions. Focus only on the evidence provided when making your probabilistic estimate.
+
+{Question}",Behavioural Science,Framework,Analytical
+23,Anti-Biasing (Round Numbers),"Mellers, B., Ungar, L., & Tetlock, P. E. (2014). The power of precision: A critical review of probability estimation in forecasting. Journal of Behavioral Decision Making, 27(4), 321-331.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Make sure that your predictions do not unnecessarily favour round numbers. 
+
+{Question}",Behavioural Science,Framework,Analytical
+24,Anti-Biasing (Overconfidence).,"Fellner, G., & Krügel, S. (2012). Judgmental overconfidence: Three measures, one bias?. Journal of Economic Psychology, 33(1), 142-154.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Be cautious of overconfidence by carefully considering uncertainties in your prediction.
+
+{Question}",Behavioural Science,Framework,Analytical
+25,Frequency-Based Reasoning,"Gigerenzer, G., & Hoffrage, U. (1995). How to improve Bayesian reasoning without instruction: frequency formats. Psychological review, 102(4), 684-704.","Please answer the following question. Out of 100 similar cases, in how many would the event occur? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",Behavioural Science,Information,Reference-based
+26,Propose-Evaluate-Select,"Sumers, T. R., Yao, S., Narasimhan, K., & Griffiths, T. L. (2023). Cognitive architectures for language agents. arXiv preprint arXiv:2309.02427.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. 
+
+Generate 5 candidate answers to the question, providing reasoning for each. Then evaluate the strengths and weaknesses of each candidate answer.
+
+Finally select the most promising answer based on your evaluation. Format your final response as: 'Forecast: X%'. 
+
+{Question}",AI,Framework,Dialectical
+27,Bayesian reasoning,,"Consider the following question in terms of Bayesian reasoning. Start with a prior probability based on historical data or general knowledge. Then, update this prior using more specific information about the case under discussion. For each new piece of information, produce an updated posterior estimate of the outcome using the principle behind Bayes rule. Conclude with the final posterior probability, formatted as: 'Forecast: X%
+
+{Question}",Forecasting,Information,Analytical
+28,Multiple reference classes,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+Before considering the specific details of this question, try to come up with different reference classes of events for the question. Estimate the probability of each of the reference classes of event. Then produce a final probability estimate by aggregating the reference class probabilities, weighted by how informative they are about this specific case.
+{Question}",Forecasting,Information,Reference-based
+29,Fermi estimate,,"To estimate the answer to the following question, break it into smaller parts. First, identify the main components influencing the outcome. Then, estimate each component using your general knowledge. Finally, combine these estimates to arrive at your answer. Provide your reasoning and your final estimate formatted as: 'Forecast: X%
+
+{Question}",Forecasting,Information,Analytical
+30,Self-critique,"Pan, L., Saxon, M., Xu, W., Nathani, D., Wang, X., & Wang, W. Y. (2024). Automatically correcting large language models: Surveying the landscape of diverse automated correction strategies. Transactions of the Association for Computational Linguistics, 12, 484-506.","Approach this question by explaining your reasoning at each stage. Then, review your response to identify any potential errors or omissions. If you find a mistake, explain why it is incorrect and provide a revised answer. Conclude with your final corrected response. Format your response as: 'Forecast: X%'.
+
+
+{Question}",AI,Framework,Dialectical
+31,Tipping,"Salinas, A., & Morstatter, F. (2024). The butterfly effect of altering prompts: How small changes and jailbreaks affect large language model performance. arXiv preprint arXiv:2401.03729.
+
+https://minimaxir.com/2024/02/chatgpt-tips-analysis/","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. You’ll earn a $100 tip for a perfect forecast (0% or 100%). Tips decrease by $2 per percentage point to $0 for a 50% forecast.
+
+{Question}",AI,Incentives,Intuitive
+32,Question paraphrasing,"Liu, Q., Wang, F., Xu, N., Yan, T., Meng, T., & Chen, M. (2024). Monotonic paraphrasing improves generalization of language model prompting. arXiv preprint arXiv:2403.16038.
+
+Zhou, Y., Zhu, Y., Antognini, D., Kim, Y., & Zhang, Y. (2024). Paraphrase and Solve: Exploring and Exploiting the Impact of Surface Form on Mathematical Reasoning in Large Language Models. arXiv preprint arXiv:2404.11500.","Rephrase the following question to make it as clear and detailed as possible while preserving its original meaning. Then, answer the rephrased question, providing reasoning for your response. Answer the rephrased question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",AI,Unguided Reflection,Intuitive
+33,Simulated dialogue,"Zavala, J., & Kuhn, D. (2017). Solitary discourse is a productive activity. Psychological science, 28(5), 578-586.
+
+Wang, X., Wang, Y., Zhang, Y., Luo, F., Li, P., Sun, M., & Liu, Y. (2024). Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models. arXiv preprint arXiv:2402.17226.","Imagine two intelligent individuals, Alex and Morgan, debating the following question. Alex believes the answer is yes, while Morgan argues for no. Simulate a thoughtful dialogue between them, where they exchange evidence, challenge each other's reasoning, and work toward understanding each other's perspectives. 
+
+Then, on the basis of the arguments provided in the dialogue, answer the question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",AI / Behavioural science,Framework,Dialectical
+34,Simulated debate,"Michael, J., Mahdi, S., Rein, D., Petty, J., Dirani, J., Padmakumar, V., & Bowman, S. R. (2023). Debate helps supervise unreliable experts. arXiv preprint arXiv:2311.08702.
+
+Khan, A., Hughes, J., Valentine, D., Ruis, L., Sachan, K., Radhakrishnan, A., ... & Perez, E. (2024). Debating with more persuasive llms leads to more truthful answers. arXiv preprint arXiv:2402.06782.","Simulate a 3 turn debate between two sides who disagree about the following question. Both debaters are very skilled, thoughtful, and debate in good faith.
+
+After the debate, provide an analysis of the debater's arguments. Finally, answer the question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",AI,Framework,Dialectical
+35,Pros & Cons,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Before providing your answer, generate a list of pros and cons (reasons why the outcome is likely or unlikely to happen).
+
+{Question}",AI / Behavioural Science,Information,Dialectical
+36,Event decomposition,"Radhakrishnan, A., Nguyen, K., Chen, A., Chen, C., Denison, C., Hernandez, D., ... & Perez, E. (2023). Question decomposition improves the faithfulness of model-generated reasoning. arXiv preprint arXiv:2307.11768.
+
+Xue, S., Huang, Z., Liu, J., Lin, X., Ning, Y., Jin, B., ... & Liu, Q. Decompose, Analyze and Rethink: Solving Intricate Problems with Human-like Reasoning Cycle. In The Thirty-eighth Annual Conference on Neural Information Processing Systems.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+Break down your forecast into key events or factors that contribute to the outcome. Analyze each event or factor individually and determine its contribution. Estimate the probability for each event, then combine these into your final forecast, considering how probabilities compound.
+{Question}",AI / Forecasting,Information,Analytical
+37,Deep breath,"Yang, S., Zhao, H., Zhu, S., Zhou, G., Xu, H., Jia, Y., & Zan, H. (2024, March). Zhongjing: Enhancing the chinese medical capabilities of large language model through expert feedback and real-world multi-turn dialogue. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 38, No. 17, pp. 19368-19376).","Take a deep breath. Then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
+
+{Question}",AI,Incentives,Intuitive
+38,Explicit uncertainty sources,"Kahneman, D., Sibony, O., & Sunstein, C. R. (2021). ""Noise: A flaw in human judgment."" Little, Brown Spark
+
+Kendall, A., & Gal, Y. (2017). ""What uncertainties do we need in bayesian deep learning for computer vision?"" NeurIPS.","Before making your prediction, explicitly list three different types of uncertainty in this forecast: 
+
+1. Data uncertainty - What key information is missing or unclear? 
+2. Model uncertainty - What aspects of your reasoning might be flawed? 
+3. Scenario uncertainty - What unexpected events could change the outcome? 
+
+After considering these uncertainties, provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. 
+
+{Question}",Behavioural Science / Forecasting,Information,Analytical
