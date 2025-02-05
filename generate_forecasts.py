@@ -179,3 +179,18 @@ for i, row in df_balanced.iterrows():
     response_data.append(row)
 
     response_df = pd.DataFrame(response_data)
+
+response_df.to_csv(f"datasets/responses_{dataset}.csv", index=False)
+
+response_df[["tokens", "n_forecasts", "forecast"]].describe()
+
+response_df[response_df.n_forecasts > 1][["prompt", "response", "n_forecasts"]]
+
+response_df[response_df.forecast == "No forecast given"][
+    ["prompt", "response", "n_forecasts"]
+]
+
+# Top 5 tokens used
+response_df.sort_values("tokens", ascending=False)[
+    ["prompt", "response", "tokens"]
+].head()
