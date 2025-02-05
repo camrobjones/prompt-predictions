@@ -12,8 +12,8 @@ Notes:
 import pandas as pd
 
 # Load data
-dataset = "2024-12-08"
-# dataset = "2024-07-21"
+# dataset = "2024-12-08"
+dataset = "2024-07-21"
 df = pd.read_csv(f"datasets/{dataset}_merged.csv")
 df = df.dropna(subset=["question"])
 
@@ -32,6 +32,9 @@ df["question"] = df.apply(
     axis=1,
 )
 
+# Remove rows with duplicate ids
+df = df.sample(frac=1).drop_duplicates(subset="id")
+
 # Add resolution criteria to question
 df["question"] = df.apply(
     lambda row: row["question"]
@@ -40,67 +43,48 @@ df["question"] = df.apply(
     axis=1,
 )
 
+df.groupby("source").size()
 
-def stratified_sample(df, n_samples=100, size_threshold=15):
-    """
-    Sample rows from a DataFrame with complete sampling for small sources and
-    even sampling across larger sources.
 
-    Parameters:
-    -----------
-    df : pandas.DataFrame
-        Input DataFrame with a 'source' column
-    n_samples : int, default=100
-        Total number of desired samples
-    size_threshold : int, default=15
-        Threshold for considering a source as "small"
+def sample_sources(df, source_counts):
+    """Sample rows from a DataFrame with specific counts per source."""
 
-    Returns:
-    --------
-    pandas.DataFrame
-        Sampled DataFrame with the desired number of rows
-    """
-    # Get source sizes
-    source_sizes = df.groupby("source").size()
+    # Initialize empty DataFrame for results
+    final_sample = pd.DataFrame()
 
-    # Separate small and large sources
-    small_sources = source_sizes[source_sizes < size_threshold].index
-    large_sources = source_sizes[source_sizes >= size_threshold].index
-
-    # Take all samples from small sources
-    small_samples = df[df["source"].isin(small_sources)]
-    n_small_samples = len(small_samples)
-
-    # Calculate remaining samples needed
-    remaining_samples = n_samples - n_small_samples
-
-    # Calculate even distribution for large sources
-    samples_per_large_source = remaining_samples // len(large_sources)
-    extra_samples = remaining_samples % len(large_sources)
-
-    # Sample from large sources
-    large_samples = pd.DataFrame()
-    for i, source in enumerate(large_sources):
-        # Add an extra sample to the first 'extra_samples' sources to distribute remainder
-        n_source_samples = samples_per_large_source + (1 if i < extra_samples else 0)
+    # Sample from each source according to specified counts
+    for source, count in source_counts.items():
         source_df = df[df["source"] == source]
-        sampled = source_df.sample(n=n_source_samples, random_state=42)
-        large_samples = pd.concat([large_samples, sampled])
 
-    # Combine small and large samples
-    final_sample = pd.concat([small_samples, large_samples])
+        # Check if we have enough samples
+        available_samples = len(source_df)
+        if available_samples < count:
+            print(
+                f"Warning: Requested {count} samples from {source} but only {available_samples} available"
+            )
+            sampled = source_df  # Take all available samples
+        else:
+            sampled = source_df.sample(n=count, random_state=42)
 
-    # Verify total samples
-    actual_samples = len(final_sample)
-    if actual_samples != n_samples:
-        print(
-            f"Warning: Returned {actual_samples} samples instead of {n_samples} due to rounding"
-        )
+        final_sample = pd.concat([final_sample, sampled])
 
     return final_sample
 
 
-df_sample = stratified_sample(df)
+# Define the desired counts per source
+source_counts = {
+    "acled": 12,
+    "infer": 7,
+    "manifold": 12,
+    "metaculus": 12,
+    "polymarket": 12,
+    "dbnomics": 11,
+    "fred": 11,
+    "wikipedia": 12,
+    "yfinance": 11,
+}
+
+df_sample = sample_sources(df, source_counts)
 
 print(df_sample.groupby("source").size())
 print(df_sample.groupby("resolution_date").size())
@@ -110,6 +94,9 @@ print(df_sample.groupby("resolved_to").size())
 
 # Select the cols we need
 df_sample = df_sample[["source", "id", "question", "resolution_date", "resolved_to"]]
+df_sample["question_id"] = df_sample.apply(
+    lambda row: f"{row['source']}_{row['id']}", axis=1
+)
 # Save to CSV
 df_sample.to_csv(f"datasets/question_sample_{dataset}.csv", index=False)
 
