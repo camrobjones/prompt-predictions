@@ -27,7 +27,7 @@ def generate_response(prompt, model_name, temperature=0, max_tokens=2000):
 
 
 def extract_forecast(response):
-    forecasts = re.findall("Forecast: (\d*\.?\d+)%", response)
+    forecasts = re.findall(r"Forecast:[\s\*]*(\d*\.?\d+)%", response)
 
     if forecasts:
         forecast = float(forecasts[-1]) / 100
@@ -180,15 +180,31 @@ for i, row in df_balanced.iterrows():
 
     response_df = pd.DataFrame(response_data)
 
+for i, row in response_df.iterrows():
+    forecast, n_forecasts = extract_forecast(row["response"])
+    if n_forecasts < 1:
+        print(i, row["response"])
+    response_df.loc[i, "forecast"] = forecast
+    response_df.loc[i, "n_forecasts"] = n_forecasts
+
+
 response_df.to_csv(f"datasets/responses_{dataset}.csv", index=False)
 
-response_df[["tokens", "n_forecasts", "forecast"]].describe()
 
-response_df[response_df.n_forecasts > 1][["prompt", "response", "n_forecasts"]]
+[
+    print(x + "\n\n" + "-" * 30)
+    for x in response_df[response_df.n_forecasts > 5]["response"]
+]
 
 response_df[response_df.forecast == "No forecast given"][
-    ["prompt", "response", "n_forecasts"]
+    ["prompt_id", "question_id", "response"]
 ]
+
+valid_forecasts = response_df[response_df["forecast"] != "No forecast given"][
+    ["forecast", "tokens", "n_forecasts"]
+]
+valid_forecasts.forecast = valid_forecasts.forecast.astype(float)
+valid_forecasts.describe()
 
 # Top 5 tokens used
 response_df.sort_values("tokens", ascending=False)[
