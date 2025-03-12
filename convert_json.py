@@ -104,8 +104,8 @@ def main():
     """Load question and resolution JSONs, merge them, and save to CSV."""
     # Configuration
     load_dir = "../forecasting-datasets/datasets/"
-    # question_set = "2024-12-08"
-    question_set = "2024-07-21"
+    question_set = "2024-12-08"
+    # question_set = "2024-07-21"
     save_dir = "datasets/"
 
     # File paths

@@ -3,24 +3,33 @@ import openai
 import re
 
 client = openai.OpenAI()
-dataset = "2024-07-21"
+dataset = "2024-12-08"
 
-df = pd.read_csv(f"datasets/questions_models_{dataset}.csv")
+df = pd.read_csv(f"datasets/questions_models_{dataset}_2.csv")
 
-df = df[df.model_name == "gpt-4o-2024-11-20"]
+df = df[df.model_name == "o1-mini-2024-09-12"]
 
 row = df.iloc[0]
 
 
 def generate_response(prompt, model_name, temperature=0, max_tokens=2000):
 
-    response = client.chat.completions.create(
-        messages=[{"role": "user", "content": prompt}],
-        model=model_name,
-        temperature=temperature,
-        max_tokens=max_tokens,
-        timeout=30,
-    )
+    if model_name == "o1-mini-2024-09-12":
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=model_name,
+            max_completion_tokens=max_tokens,
+            timeout=30,
+        )
+
+    else:
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=model_name,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            timeout=30,
+        )
     content = response.choices[0].message.content
     output_tokens = response.usage.completion_tokens
     return (content, output_tokens)
@@ -144,6 +153,9 @@ df_balanced.groupby("question_id").size()
 
 
 response_data = []
+response_df = pd.DataFrame({"question_id": []})
+
+bad_prompts = []
 
 for i, row in df_balanced.iterrows():
 
@@ -160,7 +172,14 @@ for i, row in df_balanced.iterrows():
     print(prompt)
     print("-" * 30 + "\n")
 
-    response, tokens = generate_response(prompt, model_name)
+    try:
+        response, tokens = generate_response(prompt, model_name)
+    except openai.BadRequestError as e:
+        print(f"Error: {e}")
+        response = "Error"
+        tokens = 0
+        bad_prompts.append(row["prompt_id"])
+        continue
 
     print(f"Response: {response}")
 
@@ -188,7 +207,7 @@ for i, row in response_df.iterrows():
     response_df.loc[i, "n_forecasts"] = n_forecasts
 
 
-response_df.to_csv(f"datasets/responses_{dataset}.csv", index=False)
+response_df.to_csv(f"datasets/responses_{dataset}_2.csv", index=False)
 
 
 [

@@ -1,0 +1,983 @@
+---
+title: "Prompt Predictions"
+date: "2025-03-01"
+output:
+  html_document:
+    toc: yes
+    toc_float: true
+    theme: flatly
+    highlight: kate
+    code_folding: hide
+---
+
+# Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, 
+                      fig.width = 10, fig.height = 6, out.width = "100%")
+
+# Load required libraries
+library(tidyverse)
+library(stringr)
+library(gridExtra)
+library(car)       # For statistical testing
+library(broom)     # For tidy model outputs
+library(kableExtra) # For nice tables
+library(viridis)   # For color palettes
+library(lme4)
+library(lmerTest)
+library(emmeans)
+library(car)
+```
+
+
+
+## Load data
+
+```{r load_data}
+
+# Load datasets
+questions_sample <- read_csv("datasets/question_sample_2024-12-08.csv")
+model_questions <- read_csv("datasets/questions_models_2024-12-08.csv")
+prompts <- read.csv("prompts.csv")
+
+extract_forecast <- function(text) {
+  if (is.na(text)) return(NA)
+  
+  # Remove all asterisks from the text first
+  clean_text <- gsub("\\*", "", text)
+  
+  # Use a simpler regex on the cleaned text
+  matches <- str_match(clean_text, "(?i)forecast:\\s*(\\d*\\.?\\d+)%")
+  
+  if (!is.na(matches[1,2])) {
+    # Convert to probability (0-1 scale)
+    return(as.numeric(matches[1,2]) / 100)
+  } else {
+    return(NA)
+  }
+}
+
+# Function to process model data
+process_model <- function(model_name, model_data) {
+  
+  cat("\nProcessing", model_name, "model with", nrow(model_data), "responses\n")
+  
+  # Extract forecasts and match with model_questions
+  model_processed <- model_data %>%
+    mutate(
+      forecast = map_dbl(modelOutput_content_text, extract_forecast),
+      record_num = as.numeric(str_extract(recordId, "\\d+")) - 1
+    ) %>%
+    left_join(
+      model_questions %>% select(id, question_id, prompt_id),
+      by = c("record_num" = "id")
+    ) %>%
+    mutate(model = model_name) %>%
+    select(
+      model, recordId, question_id, prompt_id, forecast,
+      input_text = modelInput_messages_content_text,
+      output_text = modelOutput_content_text
+    )
+  
+  # Merge with outcomes and calculate Brier scores
+  model_with_brier <- model_processed %>%
+    inner_join(
+      questions_sample %>% select(question_id, question, source, resolved_to),
+      by = "question_id"
+    ) %>%
+    mutate(
+      brier_score = (forecast - resolved_to)^2)
+  
+  # Report statistics
+  valid_rows <- nrow(model_with_brier)
+  mean_brier <- mean(model_with_brier$brier_score, na.rm = TRUE)
+  
+  cat("Valid rows with Brier scores:", valid_rows, "\n")
+  cat("Overall Brier score:", round(mean_brier, 4), "\n")
+  
+  return(model_with_brier)
+}
+
+# Process all models
+all_models_data <- list()
+
+sonnet <- read_csv("data/sonnet.csv")
+all_models_data[["sonnet"]] <- process_model("sonnet", sonnet)
+
+haiku <- read_csv("data/haiku.csv") 
+all_models_data[["haiku"]] <- process_model("haiku", haiku)
+
+llama <- read_csv("data/llama.csv") %>%
+  mutate(
+    modelOutput_content_text = modelOutput_generation,
+    modelInput_messages_content_text = modelInput_prompt,
+  )
+all_models_data[["llama"]] <- process_model("llama", llama)
+
+
+gpt4o <- read_csv("data/gpt4o.csv") %>%
+  mutate(
+    modelOutput_content_text = choice_message_content,
+    modelInput_messages_content_text = choice_message_content,
+    recordId = custom_id
+  )
+all_models_data[["gpt4o"]] <- process_model("gpt4o", gpt4o)
+
+
+# Combine all model data
+combined_data <- bind_rows(all_models_data) %>%
+  merge(prompts %>%
+          mutate(prompt_name = Prompt.Name) %>%
+          select(prompt_id, prompt_name)
+  )
+
+# Check distribution of data by model
+model_counts <- combined_data %>%
+  group_by(model) %>%
+  summarize(
+    count = n(),
+    mean_brier = mean(brier_score, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+model_counts %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+```
+
+
+```{r}
+
+summary(combined_data)
+
+```
+
+# Missing forecasts
+
+```{r}
+
+combined_data %>%
+  group_by(model) %>%
+  filter(is.na(forecast)) %>%
+  summarize(n_missing_forecasts=n())
+
+```
+
+Quite a few of these came from prompt 13 and include the phrase "No forecast given" implying it's intentional
+
+```{r}
+
+combined_data %>%
+  group_by(prompt_id) %>%
+  filter(is.na(forecast)) %>%
+  summarize(n_missing_forecasts=n()) %>%
+  arrange(-n_missing_forecasts) %>%
+  head(5)
+
+```
+
+```{r}
+
+combined_data %>%
+  filter(is.na(forecast), prompt_id==13) %>%
+  select(prompt_id, model, output_text) %>%
+  head(10)
+
+```
+
+I've classified responses containing "no forecast given" as "nfg".
+
+Around half of the remaining na's appear to be refusals.
+
+Notably many of them seem to think that the name for the company 'X' is a placeholder, which is unfortunate.
+
+```{r}
+
+combined_data <- combined_data %>%
+  mutate(
+    nfg = str_count(tolower(output_text), "no forecast given") > 0
+  )
+
+combined_data %>%
+  filter(is.na(forecast)) %>%
+  group_by(nfg, prompt_id) %>%
+  summarise(n = n()) %>%
+  arrange(-n) %>% head(5)
+
+```
+
+```{r}
+
+combined_data %>%
+  filter(is.na(forecast), nfg==FALSE) %>%
+  select(prompt_id, question_id, model, output_text) %>%
+  head(10)
+
+```
+
+
+
+I've used a regex to catch common phrases that appear in refusals and the vast majority of non-nfg NAs appear to be refusals
+
+```{r}
+
+combined_data <- combined_data %>%
+    mutate(
+      refusal = str_count(tolower(output_text), "i apologize|i'm sorry|i cannot|i can't|i am unable|i'm unable|i do not have access|forecast: n/a|forecast: x%") > 0
+    )
+
+combined_data %>%
+  filter(is.na(forecast)) %>%
+  filter(nfg == FALSE) %>%
+  group_by(refusal) %>%
+  summarize(n = n()) %>% arrange(-n)
+
+```
+
+
+The remaining responses (not captured by nfg or the refusals regex) mostly look like weird refusals too, with a couple of weird forecast formats we could probably get if we modify the regex
+
+```{r}
+
+
+combined_data %>%
+  filter(is.na(forecast), nfg==FALSE, refusal==FALSE) %>%
+  head(5) %>%
+  pull(output_text)
+  
+
+```
+
+```{r}
+
+# Remove NAs
+
+combined_data <- combined_data %>%
+  filter(!is.na(forecast))
+
+```
+
+After exclusions we have around 3700 for each model
+
+```{r}
+
+combined_data %>%
+  group_by(model) %>%
+  summarize(n=n())
+
+```
+
+
+
+# Forecast Distribution
+
+Overall, models are fairly conservative with a lot of mass over 0.4-0.6
+
+```{r}
+
+combined_data %>%
+  ggplot(aes(x = forecast)) + 
+  geom_histogram(fill="#2288cc") + 
+  theme_minimal()
+
+```
+
+## By Model
+
+Not a huge amount of variance by model
+
+```{r}
+
+combined_data %>%
+  ggplot(aes(x = forecast)) + 
+  geom_histogram(fill="#2288cc") + 
+  theme_minimal() + 
+  facet_wrap(facets=vars(model))
+
+```
+
+Here, mean_abs_forecast is the average distance from 0.5. Sonnet seems to produce the most decisive forecasts.
+
+```{r}
+
+combined_data %>%
+  group_by(model) %>%
+  summarize(
+    mean_forecast = mean(forecast),
+    mean_abs_forecast = mean(abs(forecast - 0.5)),
+    std_forecast = sd(forecast)
+  ) %>%
+  arrange(-mean_abs_forecast)
+  
+
+```
+
+## By prompt
+
+The same aggregation by prompt. Some prompts do seem to engender more decisive forecasts.
+
+```{r}
+
+combined_data %>%
+  group_by(prompt_name) %>%
+  summarize(
+    mean_forecast = mean(forecast),
+    mean_abs_forecast = mean(abs(forecast - 0.5)),
+    std_forecast = sd(forecast)
+  ) %>%
+  arrange(-mean_abs_forecast) %>% 
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+
+```
+
+
+## By Source
+
+The betting markets and wikipedia produced the most decisive forecasts. The temp and economics ones were much closer to 0.5 which is I think what we expected.
+
+```{r}
+
+combined_data %>%
+  group_by(source) %>%
+  summarize(
+    mean_forecast = mean(forecast),
+    mean_abs_forecast = mean(abs(forecast - 0.5)),
+    std_forecast = sd(forecast)
+  ) %>%
+  arrange(-mean_abs_forecast) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+
+```
+
+## By question
+
+Questions with the highest avg forecast
+
+```{r}
+
+combined_data %>%
+  group_by(question) %>%
+  summarize(
+    mean_forecast = mean(forecast),
+    mean_abs_forecast = mean(abs(forecast - 0.5)),
+    std_forecast = sd(forecast)
+  ) %>%
+  arrange(-mean_forecast) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+  
+
+```
+
+And lowest
+
+```{r}
+
+combined_data %>%
+  group_by(question) %>%
+  summarize(
+    mean_forecast = mean(forecast),
+    mean_abs_forecast = mean(abs(forecast - 0.5)),
+    std_forecast = sd(forecast)
+  ) %>%
+  arrange(mean_forecast) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+
+# Brier Scores
+
+## By Model
+
+
+```{r}
+
+combined_data %>%
+  group_by(model) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  )
+
+```
+
+```{r}
+
+combined_data %>%
+  ggplot(aes(x = model, y = brier_score)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") +
+  theme_minimal()
+
+```
+
+### Control prompt only
+
+```{r}
+
+combined_data %>%
+  filter(prompt_id == 1) %>%
+  ggplot(aes(x = model, y = brier_score)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") +
+  theme_minimal()
+
+```
+
+```{r}
+
+combined_data %>%
+  ggplot(aes(x = brier_score)) + 
+  geom_histogram(fill="#2288cc") + 
+  theme_minimal() + 
+  facet_wrap(facets=vars(model))
+```
+
+## By prompt
+
+```{r}
+
+combined_data %>%
+  mutate(
+    is_control = prompt_id == 1
+  ) %>%
+  ggplot(aes(x = reorder(prompt_id, -brier_score), y = brier_score, color=is_control)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") + 
+  theme_minimal() + 
+  theme(legend.position = "top")
+
+```
+
+Prompts with the lowest overall brier score
+
+```{r}
+
+combined_data %>%
+  group_by(prompt_id, prompt_name) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  ) %>%
+  arrange(mean_brier_score) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+... and the highest. These are also the only 10 that do worse than control.
+
+```{r}
+
+combined_data %>%
+  group_by(prompt_id, prompt_name) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  ) %>%
+  arrange(-mean_brier_score) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+It's interesting that PES and Bayesian reasoning do so poorly. 
+
+We could construct post-hoc stories for why many of the top prompts do so well but I'm unsure whether they'd be justified. Overall I'm surprised by the relative lack of variance in brier score by prompt!
+
+
+### Prompt by Model
+
+There's quite a lot of variation around how well different prompts perform for different models
+
+```{r}
+# Calculate prompt performance by model
+prompt_by_model <- combined_data %>%
+  group_by(model, prompt_id, prompt_name) %>%
+  summarize(
+    mean_brier = mean(brier_score, na.rm = TRUE),
+    sd_brier = sd(brier_score, na.rm = TRUE),
+    count = n(),
+    .groups = "drop"
+  )
+
+# Get control scores for each model
+control_by_model <- prompt_by_model %>%
+  filter(prompt_id == 1) %>%
+  select(model, control_score = mean_brier)
+
+# Calculate improvement over control for each model
+prompt_improvement <- prompt_by_model %>%
+  left_join(control_by_model, by = "model") %>%
+  mutate(
+    improvement = control_score - mean_brier,
+    percent_improvement = (improvement / control_score) * 100
+  )
+
+# Show top 5 prompts for each model
+top_prompts_by_model <- prompt_improvement %>%
+  group_by(model) %>%
+  top_n(5, percent_improvement) %>%
+  arrange(model, desc(percent_improvement))
+
+top_prompts_by_model %>%
+  select(model, prompt_id, prompt_name, mean_brier, percent_improvement) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+
+# Create a wide format table of Brier scores by prompt and model
+prompt_performance_wide <- prompt_by_model %>%
+  select(model, prompt_id, prompt_name, mean_brier) %>%
+  pivot_wider(
+    names_from = model,
+    values_from = mean_brier
+  ) %>%
+  rowwise() %>%
+  mutate(
+    average = mean(c_across(c(gpt4o, haiku, sonnet, llama)), na.rm = TRUE),
+    std_dev = sd(c_across(c(gpt4o, haiku, sonnet, llama)), na.rm = TRUE)
+  ) %>%
+  arrange(average) %>%
+  ungroup()
+```
+
+```{r}
+
+combined_data %>%
+  mutate(
+    is_control = prompt_id == 1
+  ) %>%
+  ggplot(aes(x = reorder(prompt_id, -brier_score), y = brier_score, color=is_control)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") + 
+  theme_minimal() + 
+  theme(legend.position = "top") +
+  facet_grid(rows=vars(model))
+
+```
+
+### Prompt Ranks by Model
+
+This is best demonstrated by looking at average rank of prompts across models. Even the top overall prompt has an avg rank of 6.25 and the rest are 10+
+
+```{r}
+
+prompt_ranks <- prompt_by_model %>%
+  group_by(model) %>%
+  mutate(rank = rank(mean_brier)) %>%
+  group_by(prompt_id, prompt_name) %>%
+  summarize(
+    avg_rank = mean(rank, na.rm = TRUE),
+    std_rank = sd(rank, na.rm = TRUE),
+    avg_brier = mean(mean_brier, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(avg_rank)
+
+# Show top universal prompts
+prompt_ranks %>%
+  top_n(10, -avg_rank) %>%
+  select(prompt_id, prompt_name, avg_rank, std_rank, avg_brier) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+
+```
+
+
+
+```{r}
+
+# Visualize universal prompts
+prompt_ranks %>%
+  top_n(10, -avg_rank) %>%
+  mutate(prompt_name = reorder(prompt_name, -avg_rank)) %>%
+  ggplot(aes(x = prompt_name, y = avg_rank, fill = avg_brier)) +
+  geom_col() +
+  scale_fill_viridis() +
+  labs(
+    title = "Most Universal Prompts Across All Models",
+    subtitle = "Based on average rank (lower is better)",
+    x = "Prompt Type",
+    y = "Average Rank",
+    fill = "Avg Brier Score"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Worst prompts by average rank:
+
+```{r}
+# Visualize universal prompts
+prompt_ranks %>%
+  top_n(10, avg_rank) %>%
+  mutate(prompt_name = reorder(prompt_name, -avg_rank)) %>%
+  ggplot(aes(x = prompt_name, y = avg_rank, fill = avg_brier)) +
+  geom_col() +
+  scale_fill_viridis() +
+  labs(
+    title = "Worst Prompts Across All Models",
+    subtitle = "Based on average rank (lower is better)",
+    x = "Prompt Type",
+    y = "Average Rank",
+    fill = "Avg Brier Score"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Here are the "most consistent" prompts with the lowest sd in rank across models
+
+```{r}
+# Show most consistent prompts (lowest standard deviation in rank)
+prompt_ranks %>%
+  top_n(10, -std_rank) %>%
+  arrange(std_rank) %>%
+  select(prompt_id, prompt_name, avg_rank, std_rank, avg_brier) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+
+```
+
+## By Source
+
+```{r}
+
+combined_data %>%
+  group_by(source) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  ) %>%
+  arrange(mean_brier_score) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+
+
+## By Question
+
+```{r}
+
+combined_data %>%
+  ggplot(aes(x = reorder(question_id, -brier_score), y = brier_score, color=source)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") + 
+  theme_minimal() + 
+  theme(legend.position = "top",
+        axis.text.x = element_blank())
+
+```
+
+Questions with the lowest overall brier score
+
+```{r}
+
+combined_data %>%
+  group_by(question, resolved_to) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  ) %>%
+  arrange(mean_brier_score) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+... and highest
+
+```{r}
+
+combined_data %>%
+  group_by(question, resolved_to) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  ) %>%
+  arrange(-mean_brier_score) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+# "Easier" sources
+
+Because some sources seem just hard overall I wanted to rerun some of the analyses for the ones where we might see more variance
+
+```{r}
+
+combined_data.easier <- combined_data %>%
+  filter(source %in% c("metaculus", "wikipedia", "polymarket", "infer", "manifold"))
+
+```
+
+4o, sonnett, and haiku all do better here
+
+```{r}
+
+combined_data.easier %>%
+  ggplot(aes(x = model, y = brier_score)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") +
+  theme_minimal()
+
+```
+
+Control prompt only:
+
+```{r}
+
+combined_data.easier %>%
+  filter(prompt_id == 1) %>%
+  ggplot(aes(x = model, y = brier_score)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") +
+  theme_minimal()
+
+```
+
+```{r}
+
+combined_data.easier %>%
+  mutate(
+    is_control = prompt_id == 1
+  ) %>%
+  ggplot(aes(x = reorder(prompt_id, -brier_score), y = brier_score, color=is_control)) + 
+  stat_summary(geom="pointrange", fun.data="mean_cl_boot") + 
+  theme_minimal() + 
+  theme(legend.position = "top")
+
+```
+
+Prompts with the lowest overall brier score. Frequency, CoT and Pros & Cons again do well here.
+
+```{r}
+
+combined_data.easier %>%
+  group_by(prompt_id, prompt_name) %>%
+  summarize(
+    mean_brier_score = mean(brier_score),
+    std_brier_score = sd(brier_score)
+  ) %>%
+  arrange(mean_brier_score) %>%
+  head(10)  %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+  
+```
+
+# Statistical Analysis
+
+## LMER
+
+Here we basically construct an LMER predicting diff from control on the basis of prompt_id. Then we do BH adjustment. The only significant prompts after this are the two that greatly increase Brier scores (Bayesian reasoning and PES).
+
+
+```{r}
+
+# 1. Calculate difference scores (experimental - control)
+# First, get control scores for each model-question combination
+control_scores <- combined_data %>%
+  filter(prompt_id == 1) %>%
+  select(model, question_id, control_brier = brier_score)
+
+# Calculate difference scores for all data
+diff_scores <- combined_data %>%
+  left_join(control_scores, by = c("model", "question_id")) %>%
+  mutate(
+    diff_score = brier_score - control_brier,
+    prompt_id = as.factor(prompt_id)) %>%
+  filter(!is.na(diff_score))  # Ensure no NA values in the difference scores
+
+```
+
+
+```{r}
+
+# 2. Fit linear mixed-effects model with fixed effects for prompt 
+# and random intercepts for model and question
+mixed_model <- lmer(diff_score ~ 0 + prompt_id + (1|model) + (1|question_id), 
+                    data = filter(diff_scores, prompt_id != 1))
+                   # data = diff_scores)  # Exclude control prompt
+
+# Summary of the model
+summary(mixed_model)
+
+```
+
+```{r}
+
+# 3. Test each prompt against zero (whether it differs from control)
+prompt_tests <- emmeans(mixed_model, ~ prompt_id)
+prompt_comparisons <- contrast(prompt_tests, "eff", ref = 0)  # Compare each to zero
+
+```
+
+```{r}
+# 4. Apply Benjamini-Hochberg correction for multiple comparisons
+prompt_results <- summary(prompt_comparisons)
+prompt_results$adj.p <- p.adjust(prompt_results$p.value, method = "BH")
+
+```
+
+```{r}
+# Display results sorted by estimate (negative is better than control)
+prompt_results_sorted <- prompt_results %>%
+  as.data.frame() %>%
+  arrange(estimate) 
+
+# Join with prompt names for clearer results
+prompt_names <- combined_data %>%
+  select(prompt_id, prompt_name) %>%
+  distinct()
+
+final_results <- prompt_results_sorted %>%
+  left_join(prompt_names %>%
+              mutate(
+                contrast= as.factor(paste0("prompt_id", prompt_id, " effect")
+              )), by = c("contrast"))
+
+# Display final results
+final_results %>% select(prompt_name, estimate, z.ratio, p.value, adj.p)%>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+```
+
+```{r}
+# 5. Visualize the results
+ggplot(final_results, aes(x = reorder(prompt_name, estimate), y = estimate)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = estimate - SE, ymax = estimate + SE), width = 0.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal(base_size=12) +
+  theme(
+    axis.title.y = element_blank(),
+    axis.title.x = element_text(size = 16)
+  ) + 
+  coord_flip() +
+  labs(
+       y = "Difference in Brier Score from Control Prompt"
+  )
+
+```
+
+```{r}
+# 7. Check if any prompts are significantly better than control
+sig_better <- final_results %>%
+  filter(adj.p < 0.05 & estimate < 0)
+
+# Check if any prompts are significantly worse than control
+sig_worse <- final_results %>%
+  filter(adj.p < 0.05 & estimate > 0)
+
+# Print results summary
+cat("\nPrompts significantly better than control (α=0.05):\n")
+print(sig_better$prompt_name)
+
+cat("\nPrompts significantly worse than control (α=0.05):\n")
+print(sig_worse$prompt_name)
+```
+
+### Multiverse analysis
+
+#### No model Intercept
+
+```{r}
+
+# and random intercepts for model and question
+mixed_model <- lmer(diff_score ~ 0 + prompt_name + (1|question_id), 
+                    data = filter(diff_scores, prompt_id != 1))
+                   # data = diff_scores)  # Exclude control prompt
+
+# Summary of the model
+summary(mixed_model)
+
+```
+
+#### No question Intercept
+
+```{r}
+
+# and random intercepts for model and question
+mixed_model <- lmer(diff_score ~ 0 + prompt_name + (1|model), 
+                    data = filter(diff_scores, prompt_id != 1))
+                   # data = diff_scores)  # Exclude control prompt
+
+# Summary of the model
+summary(mixed_model)
+
+```
+
+#### Simple linear model
+
+```{r}
+
+# and random intercepts for model and question
+mixed_model <- lm(diff_score ~ 0 + prompt_name, 
+                    data = filter(diff_scores, prompt_id != 1))
+                   # data = diff_scores)  # Exclude control prompt
+
+# Summary of the model
+summary(mixed_model)
+
+```
+
+
+
+
+
+## T-tests
+
+With the simpler t-tests, we see signif results for 3 prompts:
+
+```{r}
+# 6. Secondary analysis: one-sample t-tests for each prompt
+t_test_results <- diff_scores %>%
+  filter(prompt_id != 1) %>%
+  group_by(prompt_id, prompt_name) %>%
+  summarize(
+    mean_diff = mean(diff_score),
+    sd_diff = sd(diff_score),
+    n = n(),
+    t_stat = t.test(diff_score)$statistic,
+    p_value = t.test(diff_score)$p.value,
+    .groups = "drop"
+  ) %>%
+  mutate(adj_p_value = p.adjust(p_value, method = "BH")) %>%
+  arrange(mean_diff)
+
+
+# Display t-test results
+t_test_results %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+
+```
+
+```{r}
+# 7. Check if any prompts are significantly better than control
+sig_better <- t_test_results %>%
+  filter(adj_p_value < 0.05 & mean_diff < 0)
+
+# Check if any prompts are significantly worse than control
+sig_worse <- t_test_results %>%
+  filter(adj_p_value < 0.05 & mean_diff > 0)
+
+# Print results summary
+cat("\nPrompts significantly better than control (α=0.05):\n")
+print(sig_better$prompt_name)
+
+cat("\nPrompts significantly worse than control (α=0.05):\n")
+print(sig_worse$prompt_name)
+```

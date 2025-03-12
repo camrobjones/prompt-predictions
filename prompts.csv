@@ -105,16 +105,16 @@ Generate 5 candidate answers to the question, providing reasoning for each. Then
 Finally select the most promising answer based on your evaluation. Format your final response as: 'Forecast: X%'. 
 
 {Question}",AI,Framework,Dialectical
-27,Bayesian reasoning,,"Consider the following question in terms of Bayesian reasoning. Start with a prior probability based on historical data or general knowledge. Then, update this prior using more specific information about the case under discussion. For each new piece of information, produce an updated posterior estimate of the outcome using the principle behind Bayes rule. Conclude with the final posterior probability, formatted as: 'Forecast: X%
+27,Bayesian Reasoning,,"Consider the following question in terms of Bayesian reasoning. Start with a prior probability based on historical data or general knowledge. Then, update this prior using more specific information about the case under discussion. For each new piece of information, produce an updated posterior estimate of the outcome using the principle behind Bayes rule. Conclude with the final posterior probability, formatted as: 'Forecast: X%
 
 {Question}",Forecasting,Information,Analytical
-28,Multiple reference classes,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+28,Multiple Reference Classes,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
 Before considering the specific details of this question, try to come up with different reference classes of events for the question. Estimate the probability of each of the reference classes of event. Then produce a final probability estimate by aggregating the reference class probabilities, weighted by how informative they are about this specific case.
 {Question}",Forecasting,Information,Reference-based
-29,Fermi estimate,,"To estimate the answer to the following question, break it into smaller parts. First, identify the main components influencing the outcome. Then, estimate each component using your general knowledge. Finally, combine these estimates to arrive at your answer. Provide your reasoning and your final estimate formatted as: 'Forecast: X%
+29,Fermi Estimate,,"To estimate the answer to the following question, break it into smaller parts. First, identify the main components influencing the outcome. Then, estimate each component using your general knowledge. Finally, combine these estimates to arrive at your answer. Provide your reasoning and your final estimate formatted as: 'Forecast: X%
 
 {Question}",Forecasting,Information,Analytical
-30,Self-critique,"Pan, L., Saxon, M., Xu, W., Nathani, D., Wang, X., & Wang, W. Y. (2024). Automatically correcting large language models: Surveying the landscape of diverse automated correction strategies. Transactions of the Association for Computational Linguistics, 12, 484-506.","Approach this question by explaining your reasoning at each stage. Then, review your response to identify any potential errors or omissions. If you find a mistake, explain why it is incorrect and provide a revised answer. Conclude with your final corrected response. Format your response as: 'Forecast: X%'.
+30,Self-Critique,"Pan, L., Saxon, M., Xu, W., Nathani, D., Wang, X., & Wang, W. Y. (2024). Automatically correcting large language models: Surveying the landscape of diverse automated correction strategies. Transactions of the Association for Computational Linguistics, 12, 484-506.","Approach this question by explaining your reasoning at each stage. Then, review your response to identify any potential errors or omissions. If you find a mistake, explain why it is incorrect and provide a revised answer. Conclude with your final corrected response. Format your response as: 'Forecast: X%'.
 
 
 {Question}",AI,Framework,Dialectical
@@ -123,19 +123,19 @@ Before considering the specific details of this question, try to come up with di
 https://minimaxir.com/2024/02/chatgpt-tips-analysis/","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. You’ll earn a $100 tip for a perfect forecast (0% or 100%). Tips decrease by $2 per percentage point to $0 for a 50% forecast.
 
 {Question}",AI,Incentives,Intuitive
-32,Question paraphrasing,"Liu, Q., Wang, F., Xu, N., Yan, T., Meng, T., & Chen, M. (2024). Monotonic paraphrasing improves generalization of language model prompting. arXiv preprint arXiv:2403.16038.
+32,Question Paraphrasing,"Liu, Q., Wang, F., Xu, N., Yan, T., Meng, T., & Chen, M. (2024). Monotonic paraphrasing improves generalization of language model prompting. arXiv preprint arXiv:2403.16038.
 
 Zhou, Y., Zhu, Y., Antognini, D., Kim, Y., & Zhang, Y. (2024). Paraphrase and Solve: Exploring and Exploiting the Impact of Surface Form on Mathematical Reasoning in Large Language Models. arXiv preprint arXiv:2404.11500.","Rephrase the following question to make it as clear and detailed as possible while preserving its original meaning. Then, answer the rephrased question, providing reasoning for your response. Answer the rephrased question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
 
 {Question}",AI,Unguided Reflection,Intuitive
-33,Simulated dialogue,"Zavala, J., & Kuhn, D. (2017). Solitary discourse is a productive activity. Psychological science, 28(5), 578-586.
+33,Simulated Dialogue,"Zavala, J., & Kuhn, D. (2017). Solitary discourse is a productive activity. Psychological science, 28(5), 578-586.
 
 Wang, X., Wang, Y., Zhang, Y., Luo, F., Li, P., Sun, M., & Liu, Y. (2024). Reasoning in Conversation: Solving Subjective Tasks through Dialogue Simulation for Large Language Models. arXiv preprint arXiv:2402.17226.","Imagine two intelligent individuals, Alex and Morgan, debating the following question. Alex believes the answer is yes, while Morgan argues for no. Simulate a thoughtful dialogue between them, where they exchange evidence, challenge each other's reasoning, and work toward understanding each other's perspectives. 
 
 Then, on the basis of the arguments provided in the dialogue, answer the question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
 
 {Question}",AI / Behavioural science,Framework,Dialectical
-34,Simulated debate,"Michael, J., Mahdi, S., Rein, D., Petty, J., Dirani, J., Padmakumar, V., & Bowman, S. R. (2023). Debate helps supervise unreliable experts. arXiv preprint arXiv:2311.08702.
+34,Simulated Debate,"Michael, J., Mahdi, S., Rein, D., Petty, J., Dirani, J., Padmakumar, V., & Bowman, S. R. (2023). Debate helps supervise unreliable experts. arXiv preprint arXiv:2311.08702.
 
 Khan, A., Hughes, J., Valentine, D., Ruis, L., Sachan, K., Radhakrishnan, A., ... & Perez, E. (2024). Debating with more persuasive llms leads to more truthful answers. arXiv preprint arXiv:2402.06782.","Simulate a 3 turn debate between two sides who disagree about the following question. Both debaters are very skilled, thoughtful, and debate in good faith.
 
@@ -145,15 +145,15 @@ After the debate, provide an analysis of the debater's arguments. Finally, answe
 35,Pros & Cons,,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'. Before providing your answer, generate a list of pros and cons (reasons why the outcome is likely or unlikely to happen).
 
 {Question}",AI / Behavioural Science,Information,Dialectical
-36,Event decomposition,"Radhakrishnan, A., Nguyen, K., Chen, A., Chen, C., Denison, C., Hernandez, D., ... & Perez, E. (2023). Question decomposition improves the faithfulness of model-generated reasoning. arXiv preprint arXiv:2307.11768.
+36,Event Decomposition,"Radhakrishnan, A., Nguyen, K., Chen, A., Chen, C., Denison, C., Hernandez, D., ... & Perez, E. (2023). Question decomposition improves the faithfulness of model-generated reasoning. arXiv preprint arXiv:2307.11768.
 
 Xue, S., Huang, Z., Liu, J., Lin, X., Ning, Y., Jin, B., ... & Liu, Q. Decompose, Analyze and Rethink: Solving Intricate Problems with Human-like Reasoning Cycle. In The Thirty-eighth Annual Conference on Neural Information Processing Systems.","Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
 Break down your forecast into key events or factors that contribute to the outcome. Analyze each event or factor individually and determine its contribution. Estimate the probability for each event, then combine these into your final forecast, considering how probabilities compound.
 {Question}",AI / Forecasting,Information,Analytical
-37,Deep breath,"Yang, S., Zhao, H., Zhu, S., Zhou, G., Xu, H., Jia, Y., & Zan, H. (2024, March). Zhongjing: Enhancing the chinese medical capabilities of large language model through expert feedback and real-world multi-turn dialogue. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 38, No. 17, pp. 19368-19376).","Take a deep breath. Then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
+37,Deep Breath,"Yang, S., Zhao, H., Zhu, S., Zhou, G., Xu, H., Jia, Y., & Zan, H. (2024, March). Zhongjing: Enhancing the chinese medical capabilities of large language model through expert feedback and real-world multi-turn dialogue. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 38, No. 17, pp. 19368-19376).","Take a deep breath. Then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
 
 {Question}",AI,Incentives,Intuitive
-38,Explicit uncertainty sources,"Kahneman, D., Sibony, O., & Sunstein, C. R. (2021). ""Noise: A flaw in human judgment."" Little, Brown Spark
+38,Explicit Uncertainty Sources,"Kahneman, D., Sibony, O., & Sunstein, C. R. (2021). ""Noise: A flaw in human judgment."" Little, Brown Spark
 
 Kendall, A., & Gal, Y. (2017). ""What uncertainties do we need in bayesian deep learning for computer vision?"" NeurIPS.","Before making your prediction, explicitly list three different types of uncertainty in this forecast: 
 

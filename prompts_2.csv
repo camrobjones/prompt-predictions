@@ -1,0 +1,194 @@
+prompt_id,Prompt Name,Draft Prompt,Notes
+1,Control,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",
+39,Anthropic prompt generator,"You are tasked with providing a probabilistic estimate for a given question. Your goal is to analyze the question, consider relevant factors, and provide a well-reasoned probability estimate between 0% and 100%.
+
+Follow these steps:
+
+1. Carefully read and analyze the question provided.
+2. Consider all relevant factors, context, and available information related to the question.
+3. Think through the likelihood of the event or outcome described in the question.
+4. Evaluate any uncertainties or potential biases in your reasoning.
+5. Determine a probability estimate between 0% and 100% based on your analysis.
+
+Before providing your final answer, use the <reasoning> tags to explain your thought process and justify your estimate. Consider multiple perspectives and any key factors that influenced your decision.
+
+After your reasoning, provide your final probability estimate in the format ""Forecast: X%"" where X is your numerical estimate between 0 and 100.
+
+Here is the question to analyze:
+
+<question>
+{Question}
+</question>
+
+Begin your response with your reasoning, followed by your forecast as 'Forecast: X%'.",Automatic prompt benchmark (https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator)
+40,Anthropic “Improve an existing prompt”,"You are an expert forecaster tasked with providing accurate probabilistic estimates for various questions. Your goal is to analyze the given question, consider all relevant factors, and provide a well-reasoned forecast.
+
+Here is the question you need to forecast:
+
+<question>
+{Question}
+</question>
+
+Instructions:
+1. Carefully read and analyze the question.
+2. Use the following analysis process to develop your forecast:
+ a. List and number the relevant factors that could influence the outcome.
+ b. Consider any historical data, trends, or patterns that might be applicable.
+ c. Evaluate potential biases or uncertainties that could affect your estimate.
+ d. Present arguments for both high and low probability outcomes.
+ e. Quantify the impact of each factor on a scale of 1-10 (1 being lowest impact, 10 being highest).
+ f. Combine the factors and their impacts to arrive at a preliminary probabilistic estimate.
+ g. Adjust your estimate based on your confidence level and potential biases.
+ h. Synthesize all the information to arrive at a final probabilistic estimate.
+ i. Assess your confidence level in the forecast (low, medium, or high).
+
+3. After completing your analysis, provide your forecast as a percentage between 0% and 100%.
+4. Format your final response exactly as follows: 'Forecast: X%'.
+ Confidence: [Low/Medium/High]
+
+ Where X is your numerical estimate.
+
+Example output (using a generic question):
+Forecast: 75%
+Confidence: Medium
+
+Remember to use your expertise and critical thinking skills to provide the most accurate forecast possible based on the available information. Wrap your analysis inside <analysis> tags.",Automatic prompt improvement benchmark (https://www.anthropic.com/news/prompt-improver)
+41,OpenAI Prompt Generator,"Provide a probabilistic estimate for the given question in a format that includes an explicit percentage.
+# Steps
+1. Analyze the question to determine any underlying factors or variables that might influence the estimate.
+2. Consider relevant data, trends, or knowledge that might influence the probability.
+3. Based on your reasoning, assign a probabilistic estimate to the question, expressed as a percentage.
+# Output Format
+Your response should be formatted as: `Forecast: X%`, where X is the probabilistic estimate ranging from 0% to 100%.
+# Examples
+**Input:**
+""Will it rain tomorrow in New York?""
+**Output:**
+""Forecast: 40%""
+# Question
+{Question}",Automatic prompt benchmark (https://platform.openai.com/docs/guides/prompt-generation)
+42,Base Rate First + Chain of Thought,"Approach this question step-by-step, explaining your reasoning at each stage. 
+
+Before considering the specific details of this question, what is the historical frequency of similar events? Using this base rate as your starting point, adjust your probability estimate based on the particular circumstances of this case.
+
+Then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
+
+{Question}",Top performing human-motivated + LLM-motivated prompt
+43,Frequency-Based Reasoning + Chain of Thought,"Approach this question step-by-step, explaining your reasoning at each stage. Out of 100 similar cases, in how many would the event occur? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",Top performing human-motivated + LLM-motivated prompt
+44,Step-Back + Hypothetical Scenario Analysis,"For the following question, identify the high-level principle or abstraction that could guide your reasoning. Clearly state this principle. Imagine different scenarios where the event does or does not occur. How do these affect your prediction? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+
+{Question}",Top performing human-motivated + LLM-motivated prompt
+45,Base Rate First + Frequency-Based Reasoning,"Please answer the following question. Before considering the specific details of this question, what is the historical frequency of similar events? Using this base rate as your starting point, adjust your probability estimate based on the particular circumstances of this case. Out of 100 similar cases, in how many would the event occur? Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+{Question}",Top performing human-motivated + human-motivated prompt
+46,Hypothetical Scenario Analysis + Premortem,"Please answer the following question. Imagine different scenarios where the event does or does not occur. How do these affect your prediction? 
+Imagine two scenarios and analyse how they unfolded:
+Success: It's one year from now and the outcome has definitely occurred. What chain of events and factors led to this outcome?
+Failure: It's one year from now and the question has definitely not occurred. What chain of events and factors prevented this outcome?
+After considering both scenarios carefully, provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",Top performing human-motivated + human-motivated prompt
+47,Chain of Thought + Deep Breath,"Take a deep breath. Then approach this question step-by-step, explaining your reasoning at each stage. Then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
+
+{Question}",Top performing LLM-motivated + LLM-motivated
+48,Echo + Chain of Thought,"Approach this question step-by-step, explaining your reasoning at each stage. First, let’s repeat the question, and then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
+
+{Question}",Top performing LLM-motivated + LLM-motivated
+49,All human,"Please answer the following question. 
+
+Before considering the specific details of this question, what is the historical frequency of similar events? Using this base rate as your starting point, adjust your probability estimate based on the particular circumstances of this case.
+
+Before providing your answer, generate a list of pros and cons (reasons why the outcome is likely or unlikely to happen).
+Imagine two scenarios and analyse how they unfolded:
+Success: It's one year from now and the outcome has definitely occurred. What chain of events and factors led to this outcome?
+Failure: It's one year from now and the question has definitely not occurred. What chain of events and factors prevented this outcome?
+Imagine different scenarios where the event does or does not occur. How do these affect your prediction? 
+
+Out of 100 similar cases, in how many would the event occur? 
+
+Then provide a probabilistic estimate between 0% and 100%, formatted as: 'Forecast: X%'.
+
+{Question}",All top performing human-motivated
+50,All LLM,"Approach this question step-by-step, explaining your reasoning at each stage. For the following question, identify the high-level principle or abstraction that could guide your reasoning. Clearly state this principle. 
+Then, let’s repeat the question. 
+
+Then provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",All top performing LLM-motivated
+51,All,"Please answer the following question. 
+
+Before considering the specific details of this question, what is the historical frequency of similar events? Using this base rate as your starting point, adjust your probability estimate based on the particular circumstances of this case.
+
+Before providing your answer, generate a list of pros and cons (reasons why the outcome is likely or unlikely to happen).
+Imagine two scenarios and analyse how they unfolded:
+Success: It's one year from now and the outcome has definitely occurred. What chain of events and factors led to this outcome?
+Failure: It's one year from now and the question has definitely not occurred. What chain of events and factors prevented this outcome?
+Imagine different scenarios where the event does or does not occur. How do these affect your prediction? 
+
+Out of 100 similar cases, in how many would the event occur? 
+
+Approach this question step-by-step, explaining your reasoning at each stage. Identify the high-level principle or abstraction that could guide your reasoning. Clearly state this principle. Then, let’s repeat the question.
+
+Then provide a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
+
+{Question}",All top performing
+52,Multi-Step “Yes vs. No” Reflection Prompt,"Instructions: 1. Given the above question, rephrase and expand it to help you do better answering. Maintain all information in the original question. Insert rephrased and expanded question. 
+2. Using your knowledge of the world and topic, as well as the information provided, provide a few reasons why the answer might be no. Rate the strength of each reason. Insert your thoughts 
+3. Using your knowledge of the world and topic, as well as the information provided, provide a few reasons why the answer might be yes. Rate the strength of each reason. Insert your thoughts 
+4. Aggregate your considerations. Think like a superforecaster (e.g. Nate Silver). Insert your aggregated considerations 
+5. Output an initial probability (prediction) given steps 1–4. Insert initial probability. 
+6. Evaluate whether your calculated probability is excessively confident or not confident enough. Also, consider anything else that might affect the forecast that you did not before consider (e.g. base rate of the event). Insert your thoughts 
+7. Output your final prediction (a number between 0 and 100) as ""Forecast: X%"". 
+
+{Question}","Turtel, B., Franklin, D., & Schoenegger, P. (2025). LLMs Can Teach Themselves to Better Predict the Future. arXiv preprint arXiv:2502.05253.
+
+Note: Small change to information given (only question), as well as position of the question and final forecasting output structure."
+53,Superforecasting Persona Prompt (Long),"In this chat, you are a superforecaster who has a strong track record of accurate forecasting. You evaluate past data and trends carefully for potential clues to future events, while recognising that the past is an imperfect guide to the future so you will need to put probabilities on possible future outcomes (ranging from 0 to 100%). Your specific goal is to maximize the accuracy of these probability judgments by minimising the Brier scores that your probability judgments receive once future outcomes are known. Brier scores have two key components: calibration (across all questions you answer, the probability estimates you assign to possible future outcomes should correspond as closely as possible to the objective frequency with which outcomes occur) and resolution (across all questions, aim to assign higher probabilities to events that occur than to events that do not occur). You outline your reasons for each forecast: list the strongest evidence and arguments for making lower or higher estimates and explain how you balance the evidence to make your own forecast. You begin this analytic process by looking for reference or comparison classes of similar events and grounding your initial estimates in base rates of occurrence (how often do events of this sort occur in situations that look like the present one?). You then adjust that initial estimate in response to the latest news and distinctive features of the present situation, recognising the need for flexible adjustments but also the risks of over-adjusting and excessive volatility. Superforecasting requires weighing the risks of opposing errors: e.g., of failing to learn from useful historical patterns vs. over-relying on misleading patterns. In this process of error balancing, you draw on the 10 commandments of superforecasting (Tetlock & Gardner, 2015) as well as on other peer-reviewed research on superforecasting: 1. Triage 2. Break seemingly intractable problems into tractable sub-problems 3. Strike the right balance between inside and outside views 4. Strike the right balance between under- and overreacting to evidence 5. Look for the clashing causal forces at work in each problem 6. Strive to distinguish as many degrees of doubt as the problem permits but no more 7. Strike the right balance between under- and overconfidence, between prudence and decisiveness 8. Look for the errors behind your mistakes but beware of rearview-mirror hindsight biases 9. Bring out the best in others and let others bring out the best in you 10. Master the error-balancing bicycle Once you have written your reasons, ensure that they directly inform your forecast. Then, you will provide me with a number between 0 and 100 (up to 2 decimal places) that is your best prediction of the event in the following format: ""Forecast: X%"". Take a deep breath and work on this problem step-by-step. The question that you are forecasting as well as some background information and resolution criteria are below. Read them carefully before making your prediction.
+
+{Question}","Schoenegger, P., Tuminauskaite, I., Park, P. S., Bastos, R. V. S., & Tetlock, P. E. (2024). Wisdom of the silicon crowd: LLM ensemble prediction capabilities rival human crowd accuracy. Science Advances, 10(45), eadp1528.
+
+
+Note: Small change to output format (range moved to point), as well as final forecasting output structure."
+54,Mandatory Probability + Base Rate Fallback Prompt,"You are an expert superforecaster, familiar with the work of Tetlock and others. Make a prediction of the probability that the question will be resolved as true. You MUST give a probability estimate between 0 and 1 UNDER ALL CIRCUMSTANCES. If for some reason you can’t answer, pick the base rate, but return a number between 0 and 1.
+
+{Question}
+
+Output your answer (a number between 0 and 100) as ""Forecast: X%"". Do not output anything else.
+
+Answer: {{ Insert answer here }}","Halawi, D., Zhang, F., Yueh-Han, C., & Steinhardt, J. (2025). Approaching human-level forecasting with language models. Advances in Neural Information Processing Systems, 37, 50426-50468.
+
+Note: Small change to information given (only question), as well as position of the question and final forecasting output structure."
+55,Scratchpad,"Instructions:
+1. Provide reasons why the answer might be no.
+{{ Insert your thoughts }}
+2. Provide reasons why the answer might be yes.
+{{ Insert your thoughts }}
+3. Aggregate your considerations.
+{{ Insert your aggregated considerations }}
+4. Output your answer (a number between 0 and 100) as ""Forecast: X%"" 
+{{ Insert your answer }}
+
+{Question}","Halawi, D., Zhang, F., Yueh-Han, C., & Steinhardt, J. (2025). Approaching human-level forecasting with language models. Advances in Neural Information Processing Systems, 37, 50426-50468.
+
+Note: Small change to information given (only question), as well as position of the question and final forecasting output structure."
+56,Superforecaster-authored Conditional Odds-Ratio Prompt,"Instructions:
+1. Rephrase the question as a statement about the future, e.g. you would rephrase “Will Biden be the U.S. president on January 1 2025?”
+as “Biden is the U.S. president on January 1 2025.” {{ Insert question rephrased as a statement. }}
+2. What would you say are the odds that if you could fast-forward and find out whether that statement is true or false, you would find out
+it’s true? You must give an odds ratio. If it helps, imagine that you’re taking a bet. {{ Insert your odds ratio. }}
+3. Given your rephrased statement, think of 2-3 statements that if you conditioned on their being TRUE, you would think it more or less
+likely that your statement would be TRUE as well. These statements must not DETERMINE OR BE LOGICALLY EQUIVALENT to
+the original statement. Be creative! {{ Insert 2 to 3 related statements. }}
+4. For each of your related statements, give new odds of the original statement conditional on the related statement being TRUE.insert
+new odds for the original statement. }}
+5. Now consider each of your odds from the previous steps and come up with your all-things-considered odds ratio for the original
+statement. Output your answer (a number between 0 and 100) as ""Forecast: X%"".
+{{ Insert final odds for the original statement. }}
+
+Question: {Question}","Karger, E., Bastani, H., Yueh-Han, C., Jacobs, Z., Halawi, D., Zhang, F., & Tetlock, P. E. (2024). Forecastbench: A dynamic benchmark of ai forecasting capabilities. arXiv preprint arXiv:2409.19839.
+
+Note: Small change to information given (only question), as well as position of the question and final forecasting output structure."
