@@ -7,14 +7,14 @@ dataset = "2024-12-08"
 
 df = pd.read_csv(f"datasets/questions_models_{dataset}_2.csv")
 
-df = df[df.model_name == "o1-mini-2024-09-12"]
+df = df[df.model_name == "gpt-4o-2024-11-20"]
 
 row = df.iloc[0]
 
 
 def generate_response(prompt, model_name, temperature=0, max_tokens=2000):
 
-    if model_name == "o1-mini-2024-09-12":
+    if model_name.startswith("o1"):
         response = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
             model=model_name,
@@ -169,10 +169,14 @@ for i, row in df_balanced.iterrows():
     model_name = row["model_name"]
 
     print("\n\n" + "=" * 30 + "\n")
+    ix = df_balanced.index.get_loc(i)
+    print(f"{ix}/ {len(df_balanced)}: {round(ix/len(df_balanced)*100, 2)}%")
     print(prompt)
     print("-" * 30 + "\n")
 
     try:
+        model_name = "o1-2024-12-17"
+        # model_name = "o1-mini-2024-09-12"
         response, tokens = generate_response(prompt, model_name)
     except openai.BadRequestError as e:
         print(f"Error: {e}")
@@ -207,7 +211,7 @@ for i, row in response_df.iterrows():
     response_df.loc[i, "n_forecasts"] = n_forecasts
 
 
-response_df.to_csv(f"datasets/responses_{dataset}_2.csv", index=False)
+response_df.to_csv(f"datasets/responses_{dataset}_2_o1.csv", index=False)
 
 
 [
@@ -227,5 +231,9 @@ valid_forecasts.describe()
 
 # Top 5 tokens used
 response_df.sort_values("tokens", ascending=False)[
-    ["prompt", "response", "tokens"]
-].head()
+    ["response", "tokens", "forecast"]
+].head(15)
+
+from collections import Counter
+
+Counter(bad_prompts)

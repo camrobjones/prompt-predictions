@@ -216,7 +216,7 @@ models = pd.DataFrame(
         ],
         "model_provider": ["Anthropic", "OpenAI", "OpenAI", "Anthropic", "Local"],
         "temperature": 0,
-        "max_tokens": 2000,
+        "max_tokens": 4000,
     }
 )
 
