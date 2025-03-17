@@ -213,8 +213,16 @@ models = pd.DataFrame(
             "gpt-4o-2024-11-20",
             "claude-3-5-haiku-20241022",
             "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+            "o1-2024-12-17",
         ],
-        "model_provider": ["Anthropic", "OpenAI", "OpenAI", "Anthropic", "Local"],
+        "model_provider": [
+            "Anthropic",
+            "OpenAI",
+            "OpenAI",
+            "Anthropic",
+            "Local",
+            "OpenAI",
+        ],
         "temperature": 0,
         "max_tokens": 4000,
     }
