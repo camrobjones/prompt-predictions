@@ -2,7 +2,7 @@ prompt_id,Prompt Name,Draft Prompt,Notes
 1,Control,"Please answer the following question with a probabilistic estimate expressed between 0% and 100%, and format your response as: 'Forecast: X%'.
 
 {Question}",
-39,Anthropic prompt generator,"You are tasked with providing a probabilistic estimate for a given question. Your goal is to analyze the question, consider relevant factors, and provide a well-reasoned probability estimate between 0% and 100%.
+39,Anthropic Prompt Generator,"You are tasked with providing a probabilistic estimate for a given question. Your goal is to analyze the question, consider relevant factors, and provide a well-reasoned probability estimate between 0% and 100%.
 
 Follow these steps:
 
@@ -23,7 +23,7 @@ Here is the question to analyze:
 </question>
 
 Begin your response with your reasoning, followed by your forecast as 'Forecast: X%'.",Automatic prompt benchmark (https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator)
-40,Anthropic “Improve an existing prompt”,"You are an expert forecaster tasked with providing accurate probabilistic estimates for various questions. Your goal is to analyze the given question, consider all relevant factors, and provide a well-reasoned forecast.
+40,Anthropic “Improve an Existing Prompt”,"You are an expert forecaster tasked with providing accurate probabilistic estimates for various questions. Your goal is to analyze the given question, consider all relevant factors, and provide a well-reasoned forecast.
 
 Here is the question you need to forecast:
 
@@ -98,7 +98,7 @@ After considering both scenarios carefully, provide a probabilistic estimate bet
 48,Echo + Chain of Thought,"Approach this question step-by-step, explaining your reasoning at each stage. First, let’s repeat the question, and then provide a probabilistic estimate expressed between 0% and 100%. Format your response as: 'Forecast: X%'.
 
 {Question}",Top performing LLM-motivated + LLM-motivated
-49,All human,"Please answer the following question. 
+49,All Human,"Please answer the following question. 
 
 Before considering the specific details of this question, what is the historical frequency of similar events? Using this base rate as your starting point, adjust your probability estimate based on the particular circumstances of this case.
 
@@ -175,7 +175,7 @@ Note: Small change to information given (only question), as well as position of 
 {Question}","Halawi, D., Zhang, F., Yueh-Han, C., & Steinhardt, J. (2025). Approaching human-level forecasting with language models. Advances in Neural Information Processing Systems, 37, 50426-50468.
 
 Note: Small change to information given (only question), as well as position of the question and final forecasting output structure."
-56,Superforecaster-authored Conditional Odds-Ratio Prompt,"Instructions:
+56,Superforecaster-Authored Conditional Odds-Ratio Prompt,"Instructions:
 1. Rephrase the question as a statement about the future, e.g. you would rephrase “Will Biden be the U.S. president on January 1 2025?”
 as “Biden is the U.S. president on January 1 2025.” {{ Insert question rephrased as a statement. }}
 2. What would you say are the odds that if you could fast-forward and find out whether that statement is true or false, you would find out

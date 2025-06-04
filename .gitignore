@@ -2,3 +2,7 @@
 .Rproj.user
 .RData
 .Rhistory
+
+# Large data files
+data/
+*.csv

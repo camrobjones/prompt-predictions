@@ -1,5 +1,5 @@
 ---
-title: "Prompt Predictions"
+title: "Prompt Predictions | Study 2"
 date: "2025-03-01"
 output:
   html_document:
@@ -16,6 +16,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, 
                       fig.width = 10, fig.height = 6, out.width = "100%")
 
+
 # Load required libraries
 library(tidyverse)
 library(stringr)
@@ -28,6 +29,7 @@ library(lme4)
 library(lmerTest)
 library(emmeans)
 library(car)
+
 ```
 
 
@@ -38,8 +40,8 @@ library(car)
 
 # Load datasets
 questions_sample <- read_csv("datasets/question_sample_2024-12-08.csv")
-model_questions <- read_csv("datasets/questions_models_2024-12-08.csv")
-prompts <- read.csv("prompts.csv")
+model_questions <- read_csv("datasets/questions_models_2024-12-08_2.csv")
+prompts <- read.csv("prompts_2.csv")
 
 extract_forecast <- function(text) {
   if (is.na(text)) return(NA)
@@ -47,16 +49,82 @@ extract_forecast <- function(text) {
   # Remove all asterisks from the text first
   clean_text <- gsub("\\*", "", text)
   
-  # Use a simpler regex on the cleaned text
-  matches <- str_match(clean_text, "(?i)forecast:\\s*(\\d*\\.?\\d+)%")
-  
+  # Forecast: Regex
+  matches <- str_match(clean_text, "(?i)forecast:\\s*(~?\\d*\\.?\\d+)%")
   if (!is.na(matches[1,2])) {
     # Convert to probability (0-1 scale)
     return(as.numeric(matches[1,2]) / 100)
-  } else {
-    return(NA)
   }
+  
+  # Forecast: Regex
+  matches <- str_match(clean_text, "(?i)the final answer is:\\s*\\$?\\\\boxed\\{(\\d*\\.?\\d+)%")
+  if (!is.na(matches[1,2])) {
+    # Convert to probability (0-1 scale)
+    return(as.numeric(matches[1,2]) / 100)
+  }
+  
+  return(NA)
+
 }
+# 
+# extract_forecast <- function(text) {
+#   if (is.na(text)) return(NA)
+#   
+#   # Remove all asterisks from the text first
+#   clean_text <- gsub("\\*", "", text)
+#   
+#   # Replace newlines with spaces for easier pattern matching
+#   clean_text <- gsub("\n", " ", clean_text)
+#   
+#   # Pattern 1: "Forecast:" followed by a percentage up to a period
+#   # - Allows tildes before percentage
+#   # - Processes multiple matches and takes the last one
+#   pattern1 <- "(?i)forecast:.*?(~?\\d*\\.?\\d+)%"
+#   matches <- gregexpr(pattern1, clean_text)
+#   if (matches[[1]][1] != -1) {
+#     # Get all matches
+#     match_count <- length(matches[[1]])
+#     # Extract the last match
+#     start_pos <- matches[[1]][match_count]
+#     match_length <- attr(matches[[1]], "match.length")[match_count]
+#     match_text <- substr(clean_text, start_pos, start_pos + match_length - 1)
+#     # Extract the number (after removing any tildes)
+#     num_match <- as.numeric(gsub("~", "", str_match(match_text, "~?\\d*\\.?\\d+")[1]))
+#     return(num_match / 100)
+#   }
+#   
+#   # Pattern 2: "The final answer is:" followed by boxed or plain percentage
+#   pattern2 <- "(?i)the final answer is:.*?(\\$?\\\\boxed\\{)?(\\d*\\.?\\d+)%"
+#   matches <- gregexpr(pattern2, clean_text)
+#   if (matches[[1]][1] != -1) {
+#     # Get all matches
+#     match_count <- length(matches[[1]])
+#     # Extract the last match
+#     start_pos <- matches[[1]][match_count]
+#     match_length <- attr(matches[[1]], "match.length")[match_count]
+#     match_text <- substr(clean_text, start_pos, start_pos + match_length - 1)
+#     # Extract the number
+#     num_match <- as.numeric(str_match(match_text, "\\d*\\.?\\d+")[1])
+#     return(num_match / 100)
+#   }
+#   
+#   # Pattern 3: Just boxed percentage anywhere in text
+#   pattern3 <- "\\\\boxed\\{(\\d*\\.?\\d+)%\\}"
+#   matches <- gregexpr(pattern3, clean_text)
+#   if (matches[[1]][1] != -1) {
+#     # Get all matches
+#     match_count <- length(matches[[1]])
+#     # Extract the last match
+#     start_pos <- matches[[1]][match_count]
+#     match_length <- attr(matches[[1]], "match.length")[match_count]
+#     match_text <- substr(clean_text, start_pos, start_pos + match_length - 1)
+#     # Extract the number
+#     num_match <- as.numeric(str_match(match_text, "\\d*\\.?\\d+")[1])
+#     return(num_match / 100)
+#   }
+#   
+#   return(NA)
+# }
 
 # Function to process model data
 process_model <- function(model_name, model_data) {
@@ -76,7 +144,6 @@ process_model <- function(model_name, model_data) {
     mutate(model = model_name) %>%
     select(
       model, recordId, question_id, prompt_id, forecast,
-      input_text = modelInput_messages_content_text,
       output_text = modelOutput_content_text
     )
   
@@ -102,27 +169,36 @@ process_model <- function(model_name, model_data) {
 # Process all models
 all_models_data <- list()
 
-sonnet <- read_csv("data/sonnet.csv")
-all_models_data[["sonnet"]] <- process_model("sonnet", sonnet)
+o1 <- read_csv("data/output_batch/o1-2024-12-17.csv") %>%
+  mutate(
+    modelOutput_content_text = response_body_choices_message_content,
+    recordId = custom_id
+  )
+all_models_data[["o1"]] <- process_model("o1", o1)
 
-haiku <- read_csv("data/haiku.csv") 
-all_models_data[["haiku"]] <- process_model("haiku", haiku)
+o1_mini <- read_csv("data/output_batch/o1-mini-2024-09-12.csv") %>%
+  mutate(
+    modelOutput_content_text = response_body_choices_message_content,
+    recordId = custom_id
+  )
+all_models_data[["o1_mini"]] <- process_model("o1_mini", o1_mini)
 
-llama <- read_csv("data/llama.csv") %>%
+llama <- read_csv("data/output_batch/Meta-Llama-3.1-405B-Instruct-Turbo.csv") %>%
   mutate(
     modelOutput_content_text = modelOutput_generation,
-    modelInput_messages_content_text = modelInput_prompt,
   )
 all_models_data[["llama"]] <- process_model("llama", llama)
 
 
-gpt4o <- read_csv("data/gpt4o.csv") %>%
+gpt4o <- read_csv("data/output_batch/gpt-4o-2024-11-20.csv") %>%
   mutate(
-    modelOutput_content_text = choice_message_content,
-    modelInput_messages_content_text = choice_message_content,
+    modelOutput_content_text = response_body_choices_message_content,
     recordId = custom_id
   )
 all_models_data[["gpt4o"]] <- process_model("gpt4o", gpt4o)
+
+sonnet <- read_csv("data/output_batch/claude-3-5-sonnet-20241022.csv")
+all_models_data[["sonnet"]] <- process_model("sonnet", sonnet)
 
 
 # Combine all model data
@@ -155,6 +231,8 @@ summary(combined_data)
 
 # Missing forecasts
 
+Most missing forecasts are from o1_mini
+
 ```{r}
 
 combined_data %>%
@@ -164,53 +242,24 @@ combined_data %>%
 
 ```
 
-Quite a few of these came from prompt 13 and include the phrase "No forecast given" implying it's intentional
+Pretty evenly spread across 5 prompts
 
 ```{r}
 
 combined_data %>%
-  group_by(prompt_id) %>%
+  group_by(prompt_id, prompt_name) %>%
   filter(is.na(forecast)) %>%
   summarize(n_missing_forecasts=n()) %>%
   arrange(-n_missing_forecasts) %>%
   head(5)
 
 ```
+Most of these look like refusals
 
 ```{r}
-
-combined_data %>%
-  filter(is.na(forecast), prompt_id==13) %>%
-  select(prompt_id, model, output_text) %>%
-  head(10)
-
-```
-
-I've classified responses containing "no forecast given" as "nfg".
-
-Around half of the remaining na's appear to be refusals.
-
-Notably many of them seem to think that the name for the company 'X' is a placeholder, which is unfortunate.
-
-```{r}
-
-combined_data <- combined_data %>%
-  mutate(
-    nfg = str_count(tolower(output_text), "no forecast given") > 0
-  )
 
 combined_data %>%
   filter(is.na(forecast)) %>%
-  group_by(nfg, prompt_id) %>%
-  summarise(n = n()) %>%
-  arrange(-n) %>% head(5)
-
-```
-
-```{r}
-
-combined_data %>%
-  filter(is.na(forecast), nfg==FALSE) %>%
   select(prompt_id, question_id, model, output_text) %>%
   head(10)
 
@@ -229,21 +278,20 @@ combined_data <- combined_data %>%
 
 combined_data %>%
   filter(is.na(forecast)) %>%
-  filter(nfg == FALSE) %>%
   group_by(refusal) %>%
   summarize(n = n()) %>% arrange(-n)
 
 ```
 
 
-The remaining responses (not captured by nfg or the refusals regex) mostly look like weird refusals too, with a couple of weird forecast formats we could probably get if we modify the regex
+The remaining responses (not captured refusals regex) mostly look like weird refusals too, with a couple of weird forecast formats that were hard to get with regex.
 
 ```{r}
 
 
 combined_data %>%
-  filter(is.na(forecast), nfg==FALSE, refusal==FALSE) %>%
-  head(5) %>%
+  filter(is.na(forecast), refusal==FALSE) %>%
+  head(10) %>%
   pull(output_text)
   
 
@@ -258,7 +306,7 @@ combined_data <- combined_data %>%
 
 ```
 
-After exclusions we have around 3700 for each model
+After exclusions we have around 1900 for each model
 
 ```{r}
 
@@ -292,19 +340,12 @@ Not a huge amount of variance by model
 combined_data %>%
   ggplot(aes(x = forecast)) + 
   geom_histogram(fill="#2288cc") + 
-  theme_minimal(base_size=24) + 
-  facet_wrap(facets=vars(model)) + 
-  labs(
-    x = "Forecast",
-    y = "Count"
-  )
-
-ggsave("figures/forecast_distribution_by_model.png", width = 12, height = 8, dpi = 300)
-
+  theme_minimal() + 
+  facet_wrap(facets=vars(model))
 
 ```
 
-Here, mean_abs_forecast is the average distance from 0.5. Sonnet seems to produce the most decisive forecasts.
+Here, mean_abs_forecast is the average distance from 0.5. This time o1 produced the most decisive forecasts.
 
 ```{r}
 
@@ -480,7 +521,7 @@ combined_data %>%
   
 ```
 
-... and the highest. These are also the only 10 that do worse than control.
+... and the highest. 
 
 ```{r}
 
@@ -497,9 +538,7 @@ combined_data %>%
   
 ```
 
-It's interesting that PES and Bayesian reasoning do so poorly. 
-
-We could construct post-hoc stories for why many of the top prompts do so well but I'm unsure whether they'd be justified. Overall I'm surprised by the relative lack of variance in brier score by prompt!
+Frequency-based reasoning and CoT both do well here.
 
 
 ### Prompt by Model
@@ -550,8 +589,8 @@ prompt_performance_wide <- prompt_by_model %>%
   ) %>%
   rowwise() %>%
   mutate(
-    average = mean(c_across(c(gpt4o, haiku, sonnet, llama)), na.rm = TRUE),
-    std_dev = sd(c_across(c(gpt4o, haiku, sonnet, llama)), na.rm = TRUE)
+    average = mean(c_across(c(gpt4o, sonnet, llama, o1, o1_mini)), na.rm = TRUE),
+    std_dev = sd(c_across(c(gpt4o, sonnet, llama, o1, o1_mini)), na.rm = TRUE)
   ) %>%
   arrange(average) %>%
   ungroup()
@@ -657,6 +696,8 @@ prompt_ranks %>%
 
 ## By Source
 
+Brier on metaculus seems crazy low. Might need to look into that.
+
 ```{r}
 
 combined_data %>%
@@ -731,7 +772,7 @@ combined_data.easier <- combined_data %>%
 
 ```
 
-4o, sonnett, and haiku all do better here
+4o, sonnett, and o1 all do better here
 
 ```{r}
 
@@ -767,7 +808,7 @@ combined_data.easier %>%
 
 ```
 
-Prompts with the lowest overall brier score. Frequency, CoT and Pros & Cons again do well here.
+Prompts with the lowest overall brier score. 
 
 ```{r}
 
@@ -946,7 +987,7 @@ summary(mixed_model)
 
 ## T-tests
 
-With the simpler t-tests, we see signif results for 3 prompts:
+With the simpler t-tests, we see signif results for 4 prompts, none of which survive correction.
 
 ```{r}
 # 6. Secondary analysis: one-sample t-tests for each prompt
@@ -980,6 +1021,116 @@ sig_better <- t_test_results %>%
 # Check if any prompts are significantly worse than control
 sig_worse <- t_test_results %>%
   filter(adj_p_value < 0.05 & mean_diff > 0)
+
+# Print results summary
+cat("\nPrompts significantly better than control (α=0.05):\n")
+print(sig_better$prompt_name)
+
+cat("\nPrompts significantly worse than control (α=0.05):\n")
+print(sig_worse$prompt_name)
+```
+
+## Easier sources
+
+Here we basically construct an LMER predicting diff from control on the basis of prompt_id. Then we do BH adjustment. The only significant prompts after this are the two that greatly increase Brier scores (Bayesian reasoning and PES).
+
+
+```{r}
+
+# 1. Calculate difference scores (experimental - control)
+# First, get control scores for each model-question combination
+control_scores <- combined_data.easier %>%
+  filter(prompt_id == 1) %>%
+  select(model, question_id, control_brier = brier_score)
+
+# Calculate difference scores for all data
+diff_scores <- combined_data.easier %>%
+  left_join(control_scores, by = c("model", "question_id")) %>%
+  mutate(
+    diff_score = brier_score - control_brier,
+    prompt_id = as.factor(prompt_id)) %>%
+  filter(!is.na(diff_score))  # Ensure no NA values in the difference scores
+
+```
+
+
+```{r}
+
+# 2. Fit linear mixed-effects model with fixed effects for prompt 
+# and random intercepts for model and question
+mixed_model <- lmer(diff_score ~ 0 + prompt_id + (1|model) + (1|question_id), 
+                    data = filter(diff_scores, prompt_id != 1))
+                   # data = diff_scores)  # Exclude control prompt
+
+# Summary of the model
+summary(mixed_model)
+
+```
+
+```{r}
+
+# 3. Test each prompt against zero (whether it differs from control)
+prompt_tests <- emmeans(mixed_model, ~ prompt_id)
+prompt_comparisons <- contrast(prompt_tests, "eff", ref = 0)  # Compare each to zero
+
+```
+
+```{r}
+# 4. Apply Benjamini-Hochberg correction for multiple comparisons
+prompt_results <- summary(prompt_comparisons)
+prompt_results$adj.p <- p.adjust(prompt_results$p.value, method = "BH")
+
+```
+
+```{r}
+# Display results sorted by estimate (negative is better than control)
+prompt_results_sorted <- prompt_results %>%
+  as.data.frame() %>%
+  arrange(estimate) 
+
+# Join with prompt names for clearer results
+prompt_names <- combined_data.easier %>%
+  select(prompt_id, prompt_name) %>%
+  distinct()
+
+final_results <- prompt_results_sorted %>%
+  left_join(prompt_names %>%
+              mutate(
+                contrast= as.factor(paste0("prompt_id", prompt_id, " effect")
+              )), by = c("contrast"))
+
+# Display final results
+final_results %>% select(prompt_name, estimate, z.ratio, p.value, adj.p)%>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), font_size = 11)
+```
+
+```{r}
+# 5. Visualize the results
+ggplot(final_results, aes(x = reorder(prompt_name, estimate), y = estimate)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = estimate - SE, ymax = estimate + SE), width = 0.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal(base_size=12) +
+  theme(
+    axis.title.y = element_blank(),
+    axis.title.x = element_text(size = 16)
+  ) + 
+  coord_flip() +
+  labs(
+       y = "Difference in Brier Score from Control Prompt"
+  )
+
+```
+
+```{r}
+# 7. Check if any prompts are significantly better than control
+sig_better <- final_results %>%
+  filter(adj.p < 0.05 & estimate < 0)
+
+# Check if any prompts are significantly worse than control
+sig_worse <- final_results %>%
+  filter(adj.p < 0.05 & estimate > 0)
 
 # Print results summary
 cat("\nPrompts significantly better than control (α=0.05):\n")
