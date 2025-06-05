@@ -4,5 +4,3 @@
 .Rhistory
 
 # Large data files
-data/
-*.csv
